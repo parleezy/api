@@ -49,7 +49,7 @@ export class AuthenticationController {
     }
 
     @Post('signup')
-    async create(@Body() dto: Api.UserCreateParams): Promise<Api.Response<Api.Tokens>> {
+    async create(@Body() dto: Api.PlayerCreateParams): Promise<Api.Response<Api.Tokens>> {
         const data = await this._authenticationService.signup(dto)
 
         return {

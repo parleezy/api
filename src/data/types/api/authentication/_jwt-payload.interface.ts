@@ -1,8 +1,8 @@
 import { RoleType } from './_role.type'
 
 export interface JwtPayload {
+    player: string
     profile: string
     role: RoleType
-    user: string
     verified: boolean
 }

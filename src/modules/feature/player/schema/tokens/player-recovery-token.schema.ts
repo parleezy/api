@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 @Schema()
-export class UserRecoveryToken {
+export class PlayerRecoveryToken {
     @Prop()
     token: string
 
@@ -9,4 +9,4 @@ export class UserRecoveryToken {
     expiry: number
 }
 
-export const UserRecoverySchema = SchemaFactory.createForClass(UserRecoveryToken)
+export const PlayerRecoverySchema = SchemaFactory.createForClass(PlayerRecoveryToken)

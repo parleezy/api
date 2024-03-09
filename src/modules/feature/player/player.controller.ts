@@ -1,10 +1,10 @@
 import { Controller, Get, UseGuards } from '@nestjs/common'
 
 // Data
-import { User } from './schema/user.schema'
+import { Player } from './schema/player.schema'
 
 // Service
-import { UserService } from './user.service'
+import { PlayerService } from './player.service'
 
 // Shareds
 import { AuthorizationGuard } from '@/shared/guards/authorization.guard'
@@ -13,14 +13,14 @@ import { GetPayload } from '@/shared/decorators/get-payload.decorator'
 // Types
 import { Api } from '@/data/types/api'
 
-@Controller('user')
-export class UserController {
-    constructor(private _profileService: UserService) {}
+@Controller('player')
+export class PlayerController {
+    constructor(private _profileService: PlayerService) {}
 
     @UseGuards(AuthorizationGuard)
     @Get('me')
-    async me(@GetPayload() payload: Api.JwtPayload): Promise<Api.Response<Partial<User>>> {
-        const data = await this._profileService.retrieve.byId(payload.user)
+    async me(@GetPayload() payload: Api.JwtPayload): Promise<Api.Response<Partial<Player>>> {
+        const data = await this._profileService.retrieve.byId(payload.player)
 
         // Sanitize sensative data
         data.tokens = null

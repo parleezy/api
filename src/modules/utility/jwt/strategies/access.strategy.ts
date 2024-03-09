@@ -7,7 +7,7 @@ import { Strategy, ExtractJwt } from 'passport-jwt'
 import { Api } from '@/data/types/api'
 
 // Services
-import { UserService } from '@/modules/feature/user/user.service'
+import { PlayerService } from '@/modules/feature/player/player.service'
 import { ProfileService } from '@/modules/feature/profile/profile.service'
 
 @Injectable()
@@ -15,7 +15,7 @@ export class AccessStrategy extends PassportStrategy(Strategy, 'jwt') {
     constructor(
         config: ConfigService,
         private _profileService: ProfileService,
-        private _userService: UserService,
+        private _playerService: PlayerService,
     ) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -24,16 +24,16 @@ export class AccessStrategy extends PassportStrategy(Strategy, 'jwt') {
     }
 
     async validate(payload: Api.JwtPayload) {
-        const [user, profile] = await Promise.all([
-            this._userService.retrieve.byId(payload.user),
+        const [player, profile] = await Promise.all([
+            this._playerService.retrieve.byId(payload.player),
             this._profileService.retrieve.byId(payload.profile),
         ])
 
         return {
             profile: profile._id,
-            role: user.credentials.role,
-            user: user._id,
-            verified: user.credentials.verified,
+            role: player.credentials.role,
+            player: player._id,
+            verified: player.credentials.verified,
         }
     }
 }

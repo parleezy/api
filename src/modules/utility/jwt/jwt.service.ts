@@ -7,7 +7,7 @@ import { Api } from '@/data/types/api'
 
 // Data
 import { Profile } from '@/modules/feature/profile/profile.schema'
-import { User } from '@/modules/feature/user/schema/user.schema'
+import { Player } from '@/modules/feature/player/schema/player.schema'
 
 @Injectable()
 export class JwtService {
@@ -26,23 +26,23 @@ export class JwtService {
         })
     }
 
-    public async buildTokens(user: User, profile: Profile): Promise<{ access: string; refresh: string }> {
+    public async buildTokens(player: Player, profile: Profile): Promise<{ access: string; refresh: string }> {
         const [access, refresh] = await Promise.all([
             this._signToken(
                 {
                     profile: profile._id.toString(),
-                    role: user.credentials.role,
-                    user: user._id.toString(),
-                    verified: user.credentials.verified,
+                    role: player.credentials.role,
+                    player: player._id.toString(),
+                    verified: player.credentials.verified,
                 },
                 false,
             ),
             this._signToken(
                 {
                     profile: profile._id.toString(),
-                    role: user.credentials.role,
-                    user: user._id.toString(),
-                    verified: user.credentials.verified,
+                    role: player.credentials.role,
+                    player: player._id.toString(),
+                    verified: player.credentials.verified,
                 },
                 true,
             ),

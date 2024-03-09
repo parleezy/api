@@ -5,7 +5,7 @@ import { JwtModule } from '@/modules/utility/jwt/jwt.module'
 import { MailerModule } from '@/modules/utility/mailer/mailer.module'
 import { ProfileModule } from '@/modules/feature/profile/profile.module'
 import { StripeModule } from '@/modules/utility/stripe/stripe.module'
-import { UserModule } from '@/modules/feature/user/user.module'
+import { PlayerModule } from '@/modules/feature/player/player.module'
 
 // Controller
 import { AuthenticationController } from './authentication.controller'
@@ -17,7 +17,7 @@ import { AuthenticationService } from './authentication.service'
 import { StringEncryptor } from '@/shared/utils/string-encryptor'
 
 @Module({
-    imports: [JwtModule, MailerModule, ProfileModule, StripeModule, UserModule],
+    imports: [JwtModule, MailerModule, ProfileModule, StripeModule, PlayerModule],
     controllers: [AuthenticationController],
     providers: [AuthenticationService, StringEncryptor],
     exports: [AuthenticationService],
