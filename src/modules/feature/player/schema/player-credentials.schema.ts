@@ -4,7 +4,7 @@ import { Schema, SchemaFactory, Prop } from '@nestjs/mongoose'
 import { Api } from '@/data/types/api'
 
 @Schema()
-export class UserCredentials {
+export class PlayerCredentials {
     @Prop({ isRequired: true, unique: true, trim: true, lowercase: true })
     email: string
 
@@ -14,7 +14,7 @@ export class UserCredentials {
     @Prop({
         type: String,
         enum: Object.values(Api.RoleType),
-        default: Api.RoleType.USER,
+        default: Api.RoleType.PLAYER,
     })
     role: Api.RoleType
 
@@ -22,4 +22,4 @@ export class UserCredentials {
     verified: boolean
 }
 
-export const UserCredentialsSchema = SchemaFactory.createForClass(UserCredentials)
+export const PlayerCredentialsSchema = SchemaFactory.createForClass(PlayerCredentials)

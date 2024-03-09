@@ -20,7 +20,7 @@ export class ProfileController {
     @UseGuards(AuthorizationGuard)
     @Get('me')
     async me(@GetPayload() payload: Api.JwtPayload): Promise<Api.Response<Profile>> {
-        const data = await this._profileService.retrieve.byUser(payload.user)
+        const data = await this._profileService.retrieve.byPlayer(payload.player)
 
         return {
             data,

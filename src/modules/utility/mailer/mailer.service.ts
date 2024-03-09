@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config'
 import * as SendGrid from '@sendgrid/mail'
 
 // Schema
-import { User } from '@/modules/feature/user/schema/user.schema'
+import { Player } from '@/modules/feature/player/schema/player.schema'
 
 @Injectable()
 export class MailerService {
@@ -15,9 +15,9 @@ export class MailerService {
         return await SendGrid.send(mail)
     }
 
-    async sendWelcomeEmail(user: User): Promise<[SendGrid.ClientResponse, Record<string, never>]> {
+    async sendWelcomeEmail(player: Player): Promise<[SendGrid.ClientResponse, Record<string, never>]> {
         return await this.send({
-            to: user.credentials.email,
+            to: player.credentials.email,
             subject: 'Welcome to Parleezy!',
             from: 'Account Recovery <no-reply@parleezy.com>',
             html: `You signed up for an account bitch`,
@@ -25,22 +25,22 @@ export class MailerService {
     }
 
     async sendPasswordRecoveryEmail(
-        user: User,
+        player: Player,
         token: string,
     ): Promise<[SendGrid.ClientResponse, Record<string, never>]> {
         return await this.send({
-            to: user.credentials.email,
+            to: player.credentials.email,
             subject: 'Follow the steps to recover your account!',
             from: 'Account Recovery <no-reply@parleezy.com>',
             html: `
-                Hey, looks like you forgot your password. Click the following link to reset your password <a href="https://parleezy.com?id=${user._id}&token=${token}">Reset Password</a>
+                Hey, looks like you forgot your password. Click the following link to reset your password <a href="https://parleezy.com?id=${player._id}&token=${token}">Reset Password</a>
             `,
         })
     }
 
-    async sendPasswordResetEmail(user: User): Promise<[SendGrid.ClientResponse, Record<string, never>]> {
+    async sendPasswordResetEmail(player: Player): Promise<[SendGrid.ClientResponse, Record<string, never>]> {
         return await this.send({
-            to: user.credentials.email,
+            to: player.credentials.email,
             subject: 'Password Changed.',
             from: 'Parleezy Security <security@parleezy.com>',
             html: `

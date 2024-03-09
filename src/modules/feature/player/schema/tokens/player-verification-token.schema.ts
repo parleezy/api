@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 @Schema()
-export class UserVerificationToken {
+export class PlayerVerificationToken {
     @Prop()
     numeric: number
 
@@ -12,4 +12,4 @@ export class UserVerificationToken {
     expiry: number
 }
 
-export const UserVerificationSchema = SchemaFactory.createForClass(UserVerificationToken)
+export const PlayerVerificationSchema = SchemaFactory.createForClass(PlayerVerificationToken)

@@ -12,7 +12,7 @@ import { ActivityModule } from '@/modules/feature/activity/activity.module'
 import { AuthenticationModule } from '@/modules/feature/authentication/authentication.module'
 import { PermissionModule } from '@/modules/feature/permission/permission.module'
 import { ProfileModule } from '@/modules/feature/profile/profile.module'
-import { UserModule } from '@/modules/feature/user/user.module'
+import { PlayerModule } from '@/modules/feature/player/player.module'
 
 // Util Modules
 import { JwtModule } from '@/modules/utility/jwt/jwt.module'
@@ -29,8 +29,9 @@ import { StripeModule } from '@/modules/utility/stripe/stripe.module'
         ActivityModule,
         AuthenticationModule,
         PermissionModule,
+        PlayerModule,
         ProfileModule,
-        UserModule,
+
 
         // Utility Modules
         JwtModule,

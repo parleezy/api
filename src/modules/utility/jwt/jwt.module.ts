@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common'
 
 // Modules
 import { ConfigModule } from '@/config'
-import { UserModule } from '@/modules/feature/user/user.module'
+import { PlayerModule } from '@/modules/feature/player/player.module'
 import { ProfileModule } from '@/modules/feature/profile/profile.module'
 
 // Services
@@ -14,7 +14,7 @@ import { AccessStrategy } from './strategies/access.strategy'
 import { RefreshStrategy } from './strategies/refresh.strategy'
 
 @Module({
-    imports: [NestJwtModule.register({}), ConfigModule, ProfileModule, UserModule],
+    imports: [NestJwtModule.register({}), ConfigModule, ProfileModule, PlayerModule],
     providers: [JwtService, AccessStrategy, RefreshStrategy],
     exports: [JwtService, AccessStrategy, RefreshStrategy],
 })

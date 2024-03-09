@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import * as dateFns from 'date-fns'
 
 // Data
-import { User } from './schema/user.schema'
+import { Player } from './schema/player.schema'
 
 // Types
 import { Api } from '@/data/types/api'
@@ -11,20 +11,20 @@ import { Api } from '@/data/types/api'
 import { StringEncryptor } from '@/shared/utils/string-encryptor'
 
 @Injectable()
-export class UserFactory {
+export class PlayerFactory {
     constructor(private readonly _stringEncryptor: StringEncryptor) {}
 
-    create(dto: Api.UserCreateParams): User {
-        const user = new User()
+    create(dto: Api.PlayerCreateParams): Player {
+        const player= new Player()
 
-        user.credentials = {
+        player.credentials = {
             email: dto.email,
             password: this._stringEncryptor.generate(dto.password),
-            role: Api.RoleType.USER,
+            role: Api.RoleType.PLAYER,
             verified: false,
         }
 
-        user.tokens = {
+        player.tokens = {
             jwt: {
                 refresh: null,
             },
@@ -39,6 +39,6 @@ export class UserFactory {
             },
         }
 
-        return user
+        return player
     }
 }

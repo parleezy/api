@@ -1,9 +1,9 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 @Schema()
-export class UserJwtToken {
+export class PlayerJwtToken {
     @Prop()
     refresh: string
 }
 
-export const UserJwtSchema = SchemaFactory.createForClass(UserJwtToken)
+export const PlayerJwtSchema = SchemaFactory.createForClass(PlayerJwtToken)

@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Types } from 'mongoose'
 
 // Modules
-import { User } from '@/modules/feature/user/schema/user.schema'
+import { Player } from '@/modules/feature/player/schema/player.schema'
 
 export type ProfileDocument = Profile & Document
 
@@ -16,9 +16,9 @@ export class Profile {
 
     @Prop({
         type: Types.ObjectId,
-        ref: User.name,
+        ref: Player.name,
     })
-    user: Types.ObjectId
+    player: Types.ObjectId
 }
 
 export const ProfileSchema = SchemaFactory.createForClass(Profile)

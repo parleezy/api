@@ -5,14 +5,14 @@ import { Types } from 'mongoose'
 import { Profile } from './profile.schema'
 
 // Modules
-import { User } from '@/modules/feature/user/schema/user.schema'
+import { Player } from '@/modules/feature/player/schema/player.schema'
 
 @Injectable()
 export class ProfileFactory {
-    create(user: User): Profile {
+    create(player: Player): Profile {
         const profile = new Profile()
 
-        profile.user = user._id as unknown as Types.ObjectId
+        profile.player = player._id as unknown as Types.ObjectId
 
         return profile
     }

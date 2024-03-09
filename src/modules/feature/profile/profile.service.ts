@@ -5,8 +5,8 @@ import { Profile } from './profile.schema'
 import { ProfileFactory } from './profile.factory'
 import { ProfileRepository } from './profile.repository'
 
-// User
-import { User } from '@/modules/feature/user/schema/user.schema'
+// Player
+import { Player } from '@/modules/feature/player/schema/player.schema'
 
 @Injectable()
 export class ProfileService {
@@ -19,20 +19,20 @@ export class ProfileService {
         return await this._profileRepository.retrieve(id)
     }
 
-    private async _retrieveByUserId(id: string): Promise<Profile | null> {
-        const users = await this._profileRepository.search({ user: id })
+    private async _retrieveByPlayerId(id: string): Promise<Profile | null> {
+        const players = await this._profileRepository.search({ player: id })
 
-        return users.length === 0 ? null : users[0]
+        return players.length === 0 ? null : players[0]
     }
 
-    async create(user: User): Promise<Profile> {
-        return await this._profileRepository.create(this._profileFactory.create(user))
+    async create(player: Player): Promise<Profile> {
+        return await this._profileRepository.create(this._profileFactory.create(player))
     }
 
     get retrieve() {
         return {
             byId: (id: string): Promise<Profile | null> => this._retrieveById(id),
-            byUser: (id: string): Promise<Profile | null> => this._retrieveByUserId(id),
+            byPlayer: (id: string): Promise<Profile | null> => this._retrieveByPlayerId(id),
         }
     }
 }
