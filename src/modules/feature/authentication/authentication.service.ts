@@ -46,6 +46,8 @@ export class AuthenticationService {
     }
 
     async logout(payload: Api.JwtPayload): Promise<void> {
+        console.log(payload)
+
         const player = await this._playerService.retrieve.byId(payload.player)
 
         if (!player) {
