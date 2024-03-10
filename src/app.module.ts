@@ -10,6 +10,7 @@ import { ProvidersModule } from '@/data/providers'
 // Modules
 import { ActivityModule } from '@/modules/feature/activity/activity.module'
 import { AuthenticationModule } from '@/modules/feature/authentication/authentication.module'
+import { LeagueModule } from '@/modules/feature/league/league.module'
 import { PermissionModule } from '@/modules/feature/permission/permission.module'
 import { ProfileModule } from '@/modules/feature/profile/profile.module'
 import { PlayerModule } from '@/modules/feature/player/player.module'
@@ -28,10 +29,10 @@ import { StripeModule } from '@/modules/utility/stripe/stripe.module'
         // Feature Modules
         ActivityModule,
         AuthenticationModule,
+        LeagueModule,
         PermissionModule,
         PlayerModule,
         ProfileModule,
-
 
         // Utility Modules
         JwtModule,

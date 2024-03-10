@@ -26,7 +26,10 @@ export class PlayerService {
         return await this._playerRepository.retrieve(id)
     }
 
-    private async _updateMultipleProperties(player: Player, query: UpdateQuery<Partial<Player>>): Promise<Player | null> {
+    private async _updateMultipleProperties(
+        player: Player,
+        query: UpdateQuery<Partial<Player>>,
+    ): Promise<Player | null> {
         return await this._playerRepository.update(player._id, query)
     }
 
@@ -37,9 +40,7 @@ export class PlayerService {
     }
 
     async create(dto: Api.PlayerCreateParams): Promise<Player> {
-        const player = await this._playerRepository.create(this._playerFactory.create(dto))
-
-        return player
+        return await this._playerRepository.create(this._playerFactory.create(dto))
     }
 
     get retrieve() {
@@ -51,7 +52,8 @@ export class PlayerService {
 
     get update() {
         return {
-            properties: (player: Player, query: UpdateQuery<Partial<Player>>) => this._updateMultipleProperties(player, query),
+            properties: (player: Player, query: UpdateQuery<Partial<Player>>) =>
+                this._updateMultipleProperties(player, query),
             refresh: (player: Player, token: string): Promise<Player | null> => this._updateRefreshToken(player, token),
         }
     }

@@ -10,7 +10,6 @@ import { PlayerService } from '@/modules/feature/player/player.service'
 import { ProfileService } from '@/modules/feature/profile/profile.service'
 import { StripeService } from '@/modules/utility/stripe/services'
 
-
 // Utils
 import { StringEncryptor } from '@/shared/utils/string-encryptor'
 
@@ -46,8 +45,6 @@ export class AuthenticationService {
     }
 
     async logout(payload: Api.JwtPayload): Promise<void> {
-        console.log(payload)
-
         const player = await this._playerService.retrieve.byId(payload.player)
 
         if (!player) {
@@ -59,8 +56,6 @@ export class AuthenticationService {
                 'tokens.jwt.refresh': null,
             }),
         ])
-
-        return
     }
 
     async refresh(payload: Api.JwtRefreshPayload): Promise<Api.Tokens> {

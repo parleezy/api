@@ -15,7 +15,7 @@ export class PlayerFactory {
     constructor(private readonly _stringEncryptor: StringEncryptor) {}
 
     create(dto: Api.PlayerCreateParams): Player {
-        const player= new Player()
+        const player = new Player()
 
         player.credentials = {
             email: dto.email,

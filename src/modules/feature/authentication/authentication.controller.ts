@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Query, UseGuards } from '@nestjs/common'
+import { Body, Controller, Post, UseGuards } from '@nestjs/common'
 
 // Service
 import { AuthenticationService } from './authentication.service'
@@ -28,7 +28,6 @@ export class AuthenticationController {
     @UseGuards(AuthorizationGuard)
     @Post('logout')
     async logout(@GetPayload() payload: Api.JwtPayload): Promise<Api.Response<null>> {
-        console.log('HELLO')
         await this._authenticationService.logout(payload)
 
         return {
@@ -68,15 +67,15 @@ export class AuthenticationController {
         }
     }
 
-    @Post('verify/link')
-    async verifyLink(@Query() dto: Api.EmailVerificationParams): Promise<Api.Response<Api.Tokens>> {
-        const data = await this._authenticationService.verifyEmail(dto)
+    // @Post('verify/link')
+    // async verifyLink(@Query() dto: Api.EmailVerificationParams): Promise<Api.Response<Api.Tokens>> {
+    //     // const data = await this._authenticationService.verifyEmail(dto)
 
-        return {
-            data,
-            success: true,
-        }
-    }
+    //     return {
+    //         data: {},
+    //         success: true,
+    //     }
+    // }
 
     // TODO: Add guard to get email from token to resend verification
     @Post('verify/resend')
