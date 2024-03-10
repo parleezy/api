@@ -1,4 +1,5 @@
 export * from './authentication'
+export * from './league'
 export * from './player'
 export * from './profile'
 export * from './response'
