@@ -15,6 +15,7 @@ import { LeagueModule } from '@/modules/feature/league/league.module'
 import { PermissionModule } from '@/modules/feature/permission/permission.module'
 import { ProfileModule } from '@/modules/feature/profile/profile.module'
 import { PlayerModule } from '@/modules/feature/player/player.module'
+import { SeasonModule } from '@/modules/feature/season/season.module'
 
 // Util Modules
 import { JwtModule } from '@/modules/utility/jwt/jwt.module'
@@ -35,6 +36,7 @@ import { StripeModule } from '@/modules/utility/stripe/stripe.module'
         PermissionModule,
         PlayerModule,
         ProfileModule,
+        SeasonModule,
 
         // Utility Modules
         JwtModule,
