@@ -9,6 +9,7 @@ import { ProvidersModule } from '@/data/providers'
 
 // Modules
 import { ActivityModule } from '@/modules/feature/activity/activity.module'
+import { AssociationModule } from '@/modules/feature/association/association.module'
 import { AuthenticationModule } from '@/modules/feature/authentication/authentication.module'
 import { LeagueModule } from '@/modules/feature/league/league.module'
 import { PermissionModule } from '@/modules/feature/permission/permission.module'
@@ -28,6 +29,7 @@ import { StripeModule } from '@/modules/utility/stripe/stripe.module'
 
         // Feature Modules
         ActivityModule,
+        AssociationModule,
         AuthenticationModule,
         LeagueModule,
         PermissionModule,

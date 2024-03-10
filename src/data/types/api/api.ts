@@ -1,3 +1,4 @@
+export * from './association'
 export * from './authentication'
 export * from './league'
 export * from './player'
