@@ -3,9 +3,9 @@ import { Module } from '@nestjs/common'
 // Module
 import { JwtModule } from '@/modules/utility/jwt/jwt.module'
 import { MailerModule } from '@/modules/utility/mailer/mailer.module'
-import { ProfileModule } from '@/modules/feature/profile/profile.module'
+import { ProfileModule } from '@/modules/feature/user-management/profile/profile.module'
 import { StripeModule } from '@/modules/utility/stripe/stripe.module'
-import { PlayerModule } from '@/modules/feature/player/player.module'
+import { PlayerModule } from '@/modules/feature/user-management/player/player.module'
 
 // Controller
 import { AuthenticationController } from './authentication.controller'

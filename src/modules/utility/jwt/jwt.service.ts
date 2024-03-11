@@ -6,8 +6,8 @@ import { JwtService as NestJWTService } from '@nestjs/jwt'
 import { Api } from '@/data/types/api'
 
 // Data
-import { Profile } from '@/modules/feature/profile/profile.schema'
-import { Player } from '@/modules/feature/player/schema/player.schema'
+import { Profile } from '@/modules/feature/user-management/profile/profile.schema'
+import { Player } from '@/modules/feature/user-management/player/schema/player.schema'
 
 @Injectable()
 export class JwtService {

@@ -7,8 +7,8 @@ import { Strategy, ExtractJwt } from 'passport-jwt'
 import { Api } from '@/data/types/api'
 
 // Services
-import { PlayerService } from '@/modules/feature/player/player.service'
-import { ProfileService } from '@/modules/feature/profile/profile.service'
+import { PlayerService } from '@/modules/feature/user-management/player/player.service'
+import { ProfileService } from '@/modules/feature/user-management/profile/profile.service'
 
 @Injectable()
 export class AccessStrategy extends PassportStrategy(Strategy, 'jwt') {

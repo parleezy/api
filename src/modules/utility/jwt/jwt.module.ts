@@ -3,8 +3,8 @@ import { Module } from '@nestjs/common'
 
 // Modules
 import { ConfigModule } from '@/config'
-import { PlayerModule } from '@/modules/feature/player/player.module'
-import { ProfileModule } from '@/modules/feature/profile/profile.module'
+import { PlayerModule } from '@/modules/feature/user-management/player/player.module'
+import { ProfileModule } from '@/modules/feature/user-management/profile/profile.module'
 
 // Services
 import { JwtService } from './jwt.service'

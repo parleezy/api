@@ -6,7 +6,7 @@ import { ProfileFactory } from './profile.factory'
 import { ProfileRepository } from './profile.repository'
 
 // Player
-import { Player } from '@/modules/feature/player/schema/player.schema'
+import { Player } from '@/modules/feature/user-management/player/schema/player.schema'
 
 @Injectable()
 export class ProfileService {

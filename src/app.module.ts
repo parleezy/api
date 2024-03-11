@@ -8,16 +8,22 @@ import { ConfigModule } from '@/config'
 import { ProvidersModule } from '@/data/providers'
 
 // Modules
-import { ActivityModule } from '@/modules/feature/activity/activity.module'
-import { AuthenticationModule } from '@/modules/feature/authentication/authentication.module'
-import { PermissionModule } from '@/modules/feature/permission/permission.module'
-import { ProfileModule } from '@/modules/feature/profile/profile.module'
-import { PlayerModule } from '@/modules/feature/player/player.module'
+import { ActivityModule } from '@/modules/feature/user-management/activity/activity.module'
+import { AssociationModule } from '@/modules/feature/entities/association/association.module'
+import { AuthenticationModule } from '@/modules/feature/user-management/authentication/authentication.module'
+import { LeagueModule } from '@/modules/feature/entities/league/league.module'
+import { PermissionModule } from '@/modules/feature/user-management/permission/permission.module'
+import { ProfileModule } from '@/modules/feature/user-management/profile/profile.module'
+import { PlayerModule } from '@/modules/feature/user-management/player/player.module'
+import { SeasonModule } from '@/modules/feature/entities/season/season.module'
 
 // Util Modules
 import { JwtModule } from '@/modules/utility/jwt/jwt.module'
 import { MailerModule } from '@/modules/utility/mailer/mailer.module'
 import { StripeModule } from '@/modules/utility/stripe/stripe.module'
+
+// Apis
+import { ExternalApiModule } from './modules/external/external.module'
 
 @Module({
     imports: [
@@ -27,16 +33,21 @@ import { StripeModule } from '@/modules/utility/stripe/stripe.module'
 
         // Feature Modules
         ActivityModule,
+        AssociationModule,
         AuthenticationModule,
+        LeagueModule,
         PermissionModule,
         PlayerModule,
         ProfileModule,
-
+        SeasonModule,
 
         // Utility Modules
         JwtModule,
         MailerModule,
         StripeModule,
+
+        // External Apis
+        ExternalApiModule,
     ],
     controllers: [AppController],
 })

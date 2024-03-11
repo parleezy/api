@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config'
 import * as SendGrid from '@sendgrid/mail'
 
 // Schema
-import { Player } from '@/modules/feature/player/schema/player.schema'
+import { Player } from '@/modules/feature/user-management/player/schema/player.schema'
 
 @Injectable()
 export class MailerService {

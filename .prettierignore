@@ -1,0 +1,24 @@
+# Ignore build artifacts
+build
+dist
+out
+
+# Ignore configuration files
+.prettierignore
+.eslintignore
+.gitignore
+.eslintrc
+
+# Ignore git folders
+.github/
+.husky/
+
+# Ignore cache
+.cache
+.turbo
+
+# Ignore Lock files
+**-lock.**
+
+# Node Modules
+node_modules
