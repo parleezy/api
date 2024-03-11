@@ -17,6 +17,9 @@ export class SportsApiBaseballService {
         })
     }
 
+    /**
+     * Leagues
+     */
     private async _retrieveLeagueById(id: string): Promise<SportsApi.BaseballLeague | null> {
         try {
             const response = await this._api.get(`/leagues?id=${id}`)
@@ -25,7 +28,7 @@ export class SportsApiBaseballService {
         } catch (err) {}
     }
 
-    async listLeagues(country?: string, season?: string): Promise<SportsApi.BaseballLeague[]> {
+    private async _listLeagues(country?: string, season?: string): Promise<SportsApi.BaseballLeague[]> {
         try {
             const queryParams = []
 
@@ -48,13 +51,10 @@ export class SportsApiBaseballService {
             const response = await this._api.get(url)
 
             return response.data.response
-        } catch (err) {
-            console.error('Error fetching leagues:', err)
-            throw err
-        }
+        } catch (err) {}
     }
 
-    async searchLeagues(term: string): Promise<SportsApi.BaseballLeague[]> {
+    private async _searchLeagues(term: string): Promise<SportsApi.BaseballLeague[]> {
         try {
             const response = await this._api.get(`/leagues?search=${term}`)
 
@@ -65,9 +65,12 @@ export class SportsApiBaseballService {
         }
     }
 
-    get retrieveLeague() {
+    get league() {
         return {
             byId: (id: string): Promise<SportsApi.BaseballLeague | null> => this._retrieveLeagueById(id),
+            list: (country?: string, season?: string): Promise<SportsApi.BaseballLeague[]> =>
+                this._listLeagues(country, season),
+            search: (term: string): Promise<SportsApi.BaseballLeague[]> => this._searchLeagues(term),
         }
     }
 }

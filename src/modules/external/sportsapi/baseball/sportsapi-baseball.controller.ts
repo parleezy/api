@@ -16,7 +16,7 @@ export class SportsApiBaseballController {
         @Query('country') country: string,
         @Query('season') season: string,
     ): Promise<Api.Response<SportsApi.BaseballLeague[]>> {
-        const data = await this._baseballService.listLeagues(country, season)
+        const data = await this._baseballService.league.list(country, season)
 
         return {
             data,
@@ -26,7 +26,7 @@ export class SportsApiBaseballController {
 
     @Get('/leagues/search')
     async searchLeagues(@Query('term') term: string): Promise<Api.Response<SportsApi.BaseballLeague[]>> {
-        const data = term.length > 2 ? await this._baseballService.searchLeagues(term) : []
+        const data = term.length > 2 ? await this._baseballService.league.search(term) : []
 
         return {
             data,
@@ -36,7 +36,7 @@ export class SportsApiBaseballController {
 
     @Get('/leagues/:id')
     async retrieveLeagueById(@Param('id') id: string): Promise<Api.Response<SportsApi.BaseballLeague | null>> {
-        const data = await this._baseballService.retrieveLeague.byId(id)
+        const data = await this._baseballService.league.byId(id)
 
         return {
             data,
