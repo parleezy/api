@@ -22,6 +22,9 @@ import { JwtModule } from '@/modules/utility/jwt/jwt.module'
 import { MailerModule } from '@/modules/utility/mailer/mailer.module'
 import { StripeModule } from '@/modules/utility/stripe/stripe.module'
 
+// Apis
+import { ExternalApiModule } from './modules/external/external.module'
+
 @Module({
     imports: [
         // Global Modules
@@ -42,6 +45,9 @@ import { StripeModule } from '@/modules/utility/stripe/stripe.module'
         JwtModule,
         MailerModule,
         StripeModule,
+
+        // External Apis
+        ExternalApiModule,
     ],
     controllers: [AppController],
 })

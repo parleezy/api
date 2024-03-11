@@ -29,6 +29,9 @@ dependencies:
   '@sendgrid/mail':
     specifier: ^8.1.0
     version: 8.1.0
+  axios:
+    specifier: ^1.6.7
+    version: 1.6.7
   bcrypt:
     specifier: ^5.1.1
     version: 5.1.1
