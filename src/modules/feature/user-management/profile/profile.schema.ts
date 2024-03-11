@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Types } from 'mongoose'
 
 // Modules
-import { Player } from '@/modules/feature/player/schema/player.schema'
+import { Player } from '@/modules/feature/user-management/player/schema/player.schema'
 
 export type ProfileDocument = Profile & Document
 

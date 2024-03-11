@@ -5,7 +5,7 @@ import { Types } from 'mongoose'
 import { Profile } from './profile.schema'
 
 // Modules
-import { Player } from '@/modules/feature/player/schema/player.schema'
+import { Player } from '@/modules/feature/user-management/player/schema/player.schema'
 
 @Injectable()
 export class ProfileFactory {

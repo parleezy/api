@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common'
 // Player
 import { Player } from './schema/player.schema'
 import { PlayerFactory } from './player.factory'
-import { PlayerRepository } from '@/modules/feature/player/player.repository'
+import { PlayerRepository } from '@/modules/feature/user-management/player/player.repository'
 
 // Types
 import { Api } from '@/data/types/api'

@@ -6,8 +6,8 @@ import { Api } from '@/data/types/api'
 // Services
 import { JwtService } from '@/modules/utility/jwt/jwt.service'
 import { MailerService } from '@/modules/utility/mailer/mailer.service'
-import { PlayerService } from '@/modules/feature/player/player.service'
-import { ProfileService } from '@/modules/feature/profile/profile.service'
+import { PlayerService } from '@/modules/feature/user-management/player/player.service'
+import { ProfileService } from '@/modules/feature/user-management/profile/profile.service'
 import { StripeService } from '@/modules/utility/stripe/services'
 
 // Utils
