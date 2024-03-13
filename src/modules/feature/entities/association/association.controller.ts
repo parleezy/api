@@ -7,7 +7,7 @@ import { AssociationService } from './association.service'
 import { Api } from '@/data/types/api'
 import { Association } from './schema/association.schema'
 
-@Controller('association')
+@Controller('associations')
 export class AssociationController {
     constructor(private _associationService: AssociationService) {}
 

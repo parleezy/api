@@ -1,18 +1,26 @@
+import { AssociationFactory } from './association.factory'
 import { Injectable } from '@nestjs/common'
-import { AssociationRepository } from './association.repository'
-import { Association } from './schema/association.schema'
+
+// Types
 import { Api } from '@/data/types/api'
+
+// Association
+import { Association } from './schema/association.schema'
+import { AssociationRepository } from './association.repository'
 
 @Injectable()
 export class AssociationService {
-    constructor(private _associationRepository: AssociationRepository) {}
+    constructor(
+        private _associationFactory: AssociationFactory,
+        private _associationRepository: AssociationRepository,
+    ) {}
 
     private async _retrieveById(id: string): Promise<Association | null> {
         return await this._associationRepository.retrieve(id)
     }
 
     async create(dto: Api.AssociationCreateParams): Promise<Association> {
-        return await this._associationRepository.create(dto)
+        return await this._associationRepository.create(this._associationFactory.create(dto))
     }
 
     async list(): Promise<Association[]> {

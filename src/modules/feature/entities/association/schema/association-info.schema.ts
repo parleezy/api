@@ -9,6 +9,9 @@ export class AssociationInfo {
     founded: string
 
     @Prop()
+    logo: string
+
+    @Prop()
     name: string
 
     @Prop()
