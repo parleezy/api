@@ -8,7 +8,7 @@ import { AssociationController } from './association.controller'
 import { AssociationService } from './association.service'
 
 // Association
-import { Association, AssociationSchema } from './association.schema'
+import { Association, AssociationSchema } from './schema/association.schema'
 import { AssociationRepository } from './association.repository'
 
 @Module({

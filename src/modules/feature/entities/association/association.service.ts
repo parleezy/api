@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { AssociationRepository } from './association.repository'
-import { Association } from './association.schema'
+import { Association } from './schema/association.schema'
 import { Api } from '@/data/types/api'
 
 @Injectable()

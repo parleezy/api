@@ -5,7 +5,7 @@ import { AssociationService } from './association.service'
 
 // Types
 import { Api } from '@/data/types/api'
-import { Association } from './association.schema'
+import { Association } from './schema/association.schema'
 
 @Controller('association')
 export class AssociationController {
