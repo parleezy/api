@@ -1,5 +1,6 @@
 export * from './association'
 export * from './authentication'
+export * from './gamecenter'
 export * from './league'
 export * from './player'
 export * from './profile'

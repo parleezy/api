@@ -5,7 +5,7 @@ import { LeagueService } from './league.service'
 
 // Types
 import { Api } from '@/data/types/api'
-import { League } from './league.schema'
+import { League } from './schema/league.schema'
 
 @Controller('league')
 export class LeagueController {

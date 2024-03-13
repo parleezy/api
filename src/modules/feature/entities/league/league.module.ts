@@ -8,7 +8,7 @@ import { LeagueController } from './league.controller'
 import { LeagueService } from './league.service'
 
 // League
-import { League, LeagueSchema } from './league.schema'
+import { League, LeagueSchema } from './schema/league.schema'
 import { LeagueRepository } from './league.repository'
 
 @Module({

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { LeagueRepository } from './league.repository'
-import { League } from './league.schema'
+import { League } from './schema/league.schema'
 import { Api } from '@/data/types/api'
 
 @Injectable()
