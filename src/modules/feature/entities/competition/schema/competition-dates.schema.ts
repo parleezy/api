@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 @Schema()
-export class SeasonDates {
+export class CompetitionDates {
     @Prop({
         type: Number,
     })
@@ -11,4 +11,4 @@ export class SeasonDates {
     start: Date
 }
 
-export const SeasonDatesSchema = SchemaFactory.createForClass(SeasonDates)
+export const CompetitionDatesSchema = SchemaFactory.createForClass(CompetitionDates)

@@ -5,7 +5,7 @@ import { Types } from 'mongoose'
 import { Event } from '@/modules/feature/gamecenter/event/schema/event.schema'
 
 @Schema()
-export class SeasonEvents {
+export class CompetitionEvents {
     @Prop({
         type: [Types.ObjectId],
         ref: Event.name,
@@ -31,4 +31,4 @@ export class SeasonEvents {
     playoff: Types.ObjectId[]
 }
 
-export const SeasonEventsSchema = SchemaFactory.createForClass(SeasonEvents)
+export const CompetitionEventsSchema = SchemaFactory.createForClass(CompetitionEvents)
