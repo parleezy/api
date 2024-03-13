@@ -5,7 +5,7 @@ import { SeasonService } from './season.service'
 
 // Types
 import { Api } from '@/data/types/api'
-import { Season } from './season.schema'
+import { Season } from './schema/season.schema'
 
 @Controller('season')
 export class SeasonController {

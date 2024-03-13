@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { SeasonRepository } from './season.repository'
-import { Season } from './season.schema'
+import { Season } from './schema/season.schema'
 import { Api } from '@/data/types/api'
 
 @Injectable()

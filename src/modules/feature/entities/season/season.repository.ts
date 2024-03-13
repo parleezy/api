@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 // Season
-import { Season, SeasonDocument } from './season.schema'
+import { Season, SeasonDocument } from './schema/season.schema'
 
 // Generic Repo
 import { MongoRepository } from '@/data/mongo/mongo.repository'

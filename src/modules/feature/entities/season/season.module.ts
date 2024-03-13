@@ -8,7 +8,7 @@ import { SeasonController } from './season.controller'
 import { SeasonService } from './season.service'
 
 // Season
-import { Season, SeasonSchema } from './season.schema'
+import { Season, SeasonSchema } from './schema/season.schema'
 import { SeasonRepository } from './season.repository'
 
 @Module({
