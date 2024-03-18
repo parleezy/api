@@ -9,7 +9,7 @@ export class LeagueIdentity {
     description: string
 
     @Prop()
-    founded: string
+    founded: number
 
     @Prop()
     logo: string
