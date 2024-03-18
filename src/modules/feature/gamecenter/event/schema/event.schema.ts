@@ -1,14 +1,14 @@
 import { Schema, SchemaFactory } from '@nestjs/mongoose'
 
-export type SeasonDocument = Season & Document
+export type EventDocument = Event & Document
 
 @Schema({
     _id: true,
     timestamps: true,
     versionKey: false,
 })
-export class Season {
+export class Event {
     _id: string
 }
 
-export const SeasonSchema = SchemaFactory.createForClass(Season)
+export const EventSchema = SchemaFactory.createForClass(Event)

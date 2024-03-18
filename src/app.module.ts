@@ -15,7 +15,7 @@ import { LeagueModule } from '@/modules/feature/entities/league/league.module'
 import { PermissionModule } from '@/modules/feature/user-management/permission/permission.module'
 import { ProfileModule } from '@/modules/feature/user-management/profile/profile.module'
 import { PlayerModule } from '@/modules/feature/user-management/player/player.module'
-import { SeasonModule } from '@/modules/feature/entities/season/season.module'
+import { CompetitionModule } from '@/modules/feature/entities/competition/competition.module'
 
 // Util Modules
 import { JwtModule } from '@/modules/utility/jwt/jwt.module'
@@ -35,11 +35,11 @@ import { ExternalApiModule } from './modules/external/external.module'
         ActivityModule,
         AssociationModule,
         AuthenticationModule,
+        CompetitionModule,
         LeagueModule,
         PermissionModule,
         PlayerModule,
         ProfileModule,
-        SeasonModule,
 
         // Utility Modules
         JwtModule,

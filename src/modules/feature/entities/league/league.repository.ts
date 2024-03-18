@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 // League
-import { League, LeagueDocument } from './league.schema'
+import { League, LeagueDocument } from './schema/league.schema'
 
 // Generic Repo
 import { MongoRepository } from '@/data/mongo/mongo.repository'
