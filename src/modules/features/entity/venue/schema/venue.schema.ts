@@ -2,7 +2,12 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 // Api
 import { Api } from '@/data/types/api'
+
+// Schemas
 import { VenueAddress, VenueAddressSchema } from './venue-address.schema'
+import { VenueIdentity, VenueIdentitySchema } from './venue-identity.schema'
+import { VenueInformation, VenueInformationSchema } from './venue-information.schema'
+import { VenueSettings, VenueSettingsSchema } from './venue-settings.schema'
 
 export type VenueDocument = Venue & Document
 
@@ -24,6 +29,15 @@ export class Venue {
 
     @Prop({ _id: false, type: VenueAddressSchema })
     address: VenueAddress
+
+    @Prop({ _id: false, type: VenueIdentitySchema })
+    identity: VenueIdentity
+
+    @Prop({ _id: false, type: VenueInformationSchema })
+    information: VenueInformation
+
+    @Prop({ _id: false, type: VenueSettingsSchema })
+    settings: VenueSettings
 }
 
 export const VenueSchema = SchemaFactory.createForClass(Venue)

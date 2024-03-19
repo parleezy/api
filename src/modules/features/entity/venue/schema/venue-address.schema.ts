@@ -23,7 +23,7 @@ export class VenueAddress {
     postalcode: string
 
     @Prop({
-        type: Number,
+        type: String,
         required: true,
     })
     city: string
@@ -34,6 +34,16 @@ export class VenueAddress {
         required: true,
     })
     country: Api.CountryType
+
+    @Prop({
+        type: Number,
+    })
+    lat: number
+
+    @Prop({
+        type: Number,
+    })
+    lng: number
 }
 
 export const VenueAddressSchema = SchemaFactory.createForClass(VenueAddress)
