@@ -5,12 +5,12 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { VenueController } from './venue.controller'
 
 // Services
-import { VenueService } from './venue.service'
+import { VenueService } from './service/venue.service'
 
 // Venue
 import { Venue, VenueSchema } from './schema/venue.schema'
 import { VenueRepository } from './venue.repository'
-import { VenueFactory } from './venue.factory'
+import { VenueFactory } from './factory/venue.factory'
 @Module({
     imports: [MongooseModule.forFeature([{ name: Venue.name, schema: VenueSchema }])],
     controllers: [VenueController],

@@ -4,11 +4,11 @@ import { Injectable } from '@nestjs/common'
 import { Api } from '@/data/types/api'
 
 // Schemas
-import { Venue } from './schema/venue.schema'
-import { VenueAddressSchema } from './schema/venue-address.schema'
-import { VenueInformationSchema } from './schema/venue-information.schema'
-import { VenueIdentitySchema } from './schema/venue-identity.schema'
-import { VenueSettingsSchema } from './schema/venue-settings.schema'
+import { Venue } from '../schema/venue.schema'
+import { VenueAddressSchema } from '../schema/venue-address.schema'
+import { VenueInformationSchema } from '../schema/venue-information.schema'
+import { VenueIdentitySchema } from '../schema/venue-identity.schema'
+import { VenueSettingsSchema } from '../schema/venue-settings.schema'
 
 @Injectable()
 export class VenueFactory {

@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 
 // Venue
-import { Venue } from './schema/venue.schema'
-import { VenueFactory } from './venue.factory'
-import { VenueRepository } from './venue.repository'
+import { Venue } from '../schema/venue.schema'
+import { VenueFactory } from '../factory/venue.factory'
+import { VenueRepository } from '../venue.repository'
 
 // Types
 import { Api } from '@/data/types/api'

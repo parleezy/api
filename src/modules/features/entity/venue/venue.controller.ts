@@ -3,7 +3,7 @@ import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common'
 
 // Venue
 import { Venue } from './schema/venue.schema'
-import { VenueService } from './venue.service'
+import { VenueService } from './service/venue.service'
 
 @Controller('venues')
 export class VenueController {
