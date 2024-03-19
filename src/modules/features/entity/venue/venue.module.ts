@@ -8,13 +8,13 @@ import { VenueController } from './venue.controller'
 import { VenueService } from './venue.service'
 
 // Venue
-import { Venue, VenueSchema } from './venue.schema'
+import { Venue, VenueSchema } from './schema/venue.schema'
 import { VenueRepository } from './venue.repository'
-
+import { VenueFactory } from './venue.factory'
 @Module({
     imports: [MongooseModule.forFeature([{ name: Venue.name, schema: VenueSchema }])],
     controllers: [VenueController],
-    providers: [VenueRepository, VenueService],
+    providers: [VenueFactory, VenueRepository, VenueService],
     exports: [VenueService],
 })
 export class VenueModule {}

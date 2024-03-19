@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 // Venue
-import { Venue, VenueDocument } from './venue.schema'
+import { Venue, VenueDocument } from './schema/venue.schema'
 
 // Generic Repo
 import { MongoRepository } from '@/data/mongo/mongo.repository'
