@@ -22,3 +22,6 @@ out
 
 # Node Modules
 node_modules
+
+# Test
+jest.config.js
