@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 
 // Venue
 import { Venue } from './schema/venue.schema'
@@ -31,6 +31,16 @@ export class VenueService {
 
     async list(): Promise<Venue[]> {
         return await this._venueRepository.list()
+    }
+
+    async update(id: string, dto: Api.VenueUpdateParams): Promise<Venue> {
+        const venue = await this._retrieveById(id)
+
+        if (!venue) {
+            throw new NotFoundException('Cannot update venue')
+        }
+
+        return await this._venueRepository.update(id, this._venueFactory.update(venue, dto))
     }
 
     get retrieve() {

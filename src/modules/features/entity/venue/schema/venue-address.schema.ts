@@ -2,7 +2,9 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 import { Api } from '@/data/types/api'
 
-@Schema()
+@Schema({
+    _id: false,
+})
 export class VenueAddress {
     @Prop({
         type: String,
