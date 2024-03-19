@@ -1,5 +1,5 @@
 import { Api } from '@/data/types/api'
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Get, Post } from '@nestjs/common'
 
 // Venue
 import { Venue } from './schema/venue.schema'
@@ -12,6 +12,16 @@ export class VenueController {
     @Post()
     async create(@Body() body: Api.VenueCreateParams): Promise<Api.Response<Venue>> {
         const data = await this._venueService.create(body)
+
+        return {
+            data,
+            success: true,
+        }
+    }
+
+    @Get()
+    async list(): Promise<Api.Response<Venue[]>> {
+        const data = await this._venueService.list()
 
         return {
             data,

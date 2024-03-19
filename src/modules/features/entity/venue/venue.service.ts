@@ -18,4 +18,8 @@ export class VenueService {
     async create(dto: Api.VenueCreateParams): Promise<Venue> {
         return await this._venueRepository.create(this._venueFactory.create(dto))
     }
+
+    async list(): Promise<Venue[]> {
+        return await this._venueRepository.list()
+    }
 }
