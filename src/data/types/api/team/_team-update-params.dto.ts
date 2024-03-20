@@ -1,6 +1,6 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { IsBoolean, IsNumber, IsOptional, IsString } from 'class-validator'
 
-export class TeamCreateParams {
+export class TeamUpdateParams {
     @IsString()
     @IsOptional()
     venue: string
@@ -29,15 +29,15 @@ export class TeamCreateParams {
 
     // Identity
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     name: string
 
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     shortname: string
 
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     abbreviation: string
 
     @IsString()
@@ -54,15 +54,15 @@ export class TeamCreateParams {
 
     // Location
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     country: string
 
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     region: string
 
     @IsString()
-    @IsNotEmpty()
+    @IsOptional()
     subregion: string
 
     // Settings

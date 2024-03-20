@@ -3,8 +3,11 @@ import { Types } from 'mongoose'
 
 // Schemas
 import { Venue } from '@/venue/schema/venue.schema'
+import { TeamApi, TeamApiSchema } from './team-api.schema'
+import { TeamColor, TeamColorSchema } from './team-color.schema'
 import { TeamIdentity, TeamIdentitySchema } from './team-identity.schema'
 import { TeamLocation, TeamLocationSchema } from './team-location.schema'
+import { TeamSettings, TeamSettingsSchema } from './team-settings.schema'
 
 export type TeamDocument = Team & Document
 
@@ -22,11 +25,20 @@ export class Team {
     })
     venue: Types.ObjectId
 
+    @Prop({ _id: false, type: TeamApiSchema })
+    api: TeamApi
+
+    @Prop({ _id: false, type: TeamColorSchema })
+    color: TeamColor
+
     @Prop({ _id: false, type: TeamIdentitySchema })
     identity: TeamIdentity
 
     @Prop({ _id: false, type: TeamLocationSchema })
     location: TeamLocation
+
+    @Prop({ _id: false, type: TeamSettingsSchema })
+    settings: TeamSettings
 }
 
 export const TeamSchema = SchemaFactory.createForClass(Team)

@@ -5,7 +5,11 @@ import { Api } from '@/data/types/api'
 
 // Schema
 import { Team } from './schema/team.schema'
+import { TeamApiSchema } from './schema/team-api.schema'
+import { TeamColorSchema } from './schema/team-color.schema'
 import { TeamIdentitySchema } from './schema/team-identity.schema'
+import { TeamLocationSchema } from './schema/team-location.schema'
+import { TeamSettingsSchema } from './schema/team-settings.schema'
 
 @Injectable()
 export class TeamFactory {
@@ -13,10 +17,34 @@ export class TeamFactory {
         return this.assignProperties(new Team(), dto)
     }
 
+    update(team: Team, dto: Api.TeamCreateParams): Team {
+        return this.assignProperties(team, dto)
+    }
+
     private assignProperties(team: Team, dto: Api.TeamCreateParams): Team {
+        team.api = {
+            ...team.api,
+            ...this.filterProperties(dto, Object.keys(TeamApiSchema.paths)),
+        }
+
+        team.color = {
+            ...team.color,
+            ...this.filterProperties(dto, Object.keys(TeamColorSchema.paths)),
+        }
+
         team.identity = {
             ...team.identity,
             ...this.filterProperties(dto, Object.keys(TeamIdentitySchema.paths)),
+        }
+
+        team.location = {
+            ...team.location,
+            ...this.filterProperties(dto, Object.keys(TeamLocationSchema.paths)),
+        }
+
+        team.settings = {
+            ...team.settings,
+            ...this.filterProperties(dto, Object.keys(TeamSettingsSchema.paths)),
         }
 
         return team

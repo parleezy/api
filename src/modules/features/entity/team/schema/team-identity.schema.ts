@@ -26,6 +26,16 @@ export class TeamIdentity {
         type: String,
     })
     logo: string
+
+    @Prop({
+        type: Number,
+    })
+    founded: number
+
+    @Prop({
+        type: String,
+    })
+    description: string
 }
 
 export const TeamIdentitySchema = SchemaFactory.createForClass(TeamIdentity)
