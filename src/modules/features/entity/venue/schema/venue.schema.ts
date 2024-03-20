@@ -40,4 +40,16 @@ export class Venue {
     settings: VenueSettings
 }
 
-export const VenueSchema = SchemaFactory.createForClass(Venue)
+const VenueSchema = SchemaFactory.createForClass(Venue)
+
+VenueSchema.set('toJSON', {
+    transform: function (_, doc) {
+        delete doc.createdAt
+        delete doc.updatedAt
+        delete doc.__v
+
+        return doc
+    },
+})
+
+export { VenueSchema }
