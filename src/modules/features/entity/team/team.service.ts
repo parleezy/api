@@ -1,3 +1,4 @@
+import { TeamFactory } from './team.factory'
 import { Injectable } from '@nestjs/common'
 
 // Team
@@ -9,14 +10,17 @@ import { Api } from '@/data/types/api'
 
 @Injectable()
 export class TeamService {
-    constructor(private _teamRepository: TeamRepository) {}
+    constructor(
+        private _teamFactory: TeamFactory,
+        private _teamRepository: TeamRepository,
+    ) {}
 
     private async _retrieveById(id: string): Promise<Team | null> {
         return await this._teamRepository.retrieve(id)
     }
 
     async create(dto: Api.TeamCreateParams): Promise<Team> {
-        return await this._teamRepository.create({ venue: dto.venue })
+        return await this._teamRepository.create(this._teamFactory.create(dto))
     }
 
     async list(): Promise<Team[]> {
