@@ -1,3 +1,4 @@
+export * from './competition'
 export * from './external'
 export * from './gamecenter'
 export * from './geography'
