@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Types } from 'mongoose'
 
 // Schemas
-import { Venue } from '@/venue/schema/venue.schema'
+import { Venue } from '@/modules/domains/entity/venue/schema/venue.schema'
 import { TeamApi, TeamApiSchema } from './team-api.schema'
 import { TeamColor, TeamColorSchema } from './team-color.schema'
 import { TeamIdentity, TeamIdentitySchema } from './team-identity.schema'

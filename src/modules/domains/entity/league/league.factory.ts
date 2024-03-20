@@ -17,8 +17,6 @@ export class LeagueFactory {
     }
 
     private assignProperties(league: League, dto: Api.LeagueCreateParams | Api.LeagueUpdateParams): League {
-        console.log(dto)
-
         return league
     }
 

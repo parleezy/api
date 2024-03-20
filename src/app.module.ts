@@ -8,8 +8,8 @@ import { ProvidersModule } from '@/data/providers'
 import { AppController } from './app.controller'
 
 // Features
-import { EntityModule } from './modules/features/entity/entity.module'
-import { GamecenterModule } from './modules/features/gamecenter/gamecenter.module'
+import { EntityModule } from './modules/domains/entity/entity.module'
+import { GamecenterModule } from './modules/domains/gamecenter/gamecenter.module'
 
 @Module({
     imports: [

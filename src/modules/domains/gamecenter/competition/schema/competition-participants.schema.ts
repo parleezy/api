@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Types } from 'mongoose'
 
 // Entities
-import { Team } from '@/modules/features/entity/team/schema/team.schema'
+import { Team } from '@/modules/domains/entity/team/schema/team.schema'
 
 @Schema({
     _id: false,
