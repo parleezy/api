@@ -11,6 +11,6 @@ import { MongoRepository } from '@/data/mongo/mongo.repository'
 @Injectable()
 export class TeamRepository extends MongoRepository<TeamDocument> {
     constructor(@InjectModel(Team.name) teamModel: Model<TeamDocument>) {
-        super(teamModel)
+        super(teamModel, ['venue'])
     }
 }
