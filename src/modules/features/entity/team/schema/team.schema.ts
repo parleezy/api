@@ -41,4 +41,16 @@ export class Team {
     settings: TeamSettings
 }
 
-export const TeamSchema = SchemaFactory.createForClass(Team)
+const TeamSchema = SchemaFactory.createForClass(Team)
+
+TeamSchema.set('toJSON', {
+    transform: function (_, doc) {
+        delete doc.createdAt
+        delete doc.updatedAt
+        delete doc.__v
+
+        return doc
+    },
+})
+
+export { TeamSchema }
