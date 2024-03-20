@@ -17,11 +17,11 @@ export class TeamFactory {
         return this.assignProperties(new Team(), dto)
     }
 
-    update(team: Team, dto: Api.TeamCreateParams): Team {
+    update(team: Team, dto: Api.TeamUpdateParams): Team {
         return this.assignProperties(team, dto)
     }
 
-    private assignProperties(team: Team, dto: Api.TeamCreateParams): Team {
+    private assignProperties(team: Team, dto: Api.TeamCreateParams | Api.TeamUpdateParams): Team {
         team.api = {
             ...team.api,
             ...this.filterProperties(dto, Object.keys(TeamApiSchema.paths)),

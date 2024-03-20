@@ -1,3 +1,4 @@
+export * from './association'
 export * from './competition'
 export * from './external'
 export * from './gamecenter'
