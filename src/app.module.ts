@@ -9,6 +9,7 @@ import { AppController } from './app.controller'
 
 // Features
 import { EntityModule } from './modules/features/entity/entity.module'
+import { GamecenterModule } from './modules/features/gamecenter/gamecenter.module'
 
 @Module({
     imports: [
@@ -18,6 +19,7 @@ import { EntityModule } from './modules/features/entity/entity.module'
 
         // Features
         EntityModule,
+        GamecenterModule,
     ],
     controllers: [AppController],
 })
