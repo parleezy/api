@@ -19,7 +19,11 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
-            "@/venue/*": ["./src/modules/features/entity/venue/*"],
+            "@/association/*": ["src/modules/domains/entity/association/*"],
+            "@/league/*": ["src/modules/domains/entity/league/*"],
+            "@/team/*": ["src/modules/domains/entity/team/*"],
+            "@/venue/*": ["src/modules/domains/entity/venue/*"],
+            "@/competition/*": ["src/modules/domains/gamecenter/competition/*"],
         },
         "types": ["jest", "node"],
     },
