@@ -3,13 +3,16 @@ import { EventEmitterModule } from '@nestjs/event-emitter'
 import { ScheduleModule } from '@nestjs/schedule'
 
 // Controllers
-import { AppController } from './app.controller'
+import { AppController } from '@/app.controller'
 
 // Core Modules
 import { ConfigModule } from '@/config'
 import { ProvidersModule } from '@/providers/providers.module'
-import { EventModule } from './events/event.module'
-import { TaskModule } from './tasks/task.module'
+import { EventModule } from '@/events/event.module'
+import { TaskModule } from '@/tasks/task.module'
+
+// Modules
+import { CompetitionModule } from './modules/competition/competition.module'
 
 @Module({
     imports: [
@@ -23,8 +26,7 @@ import { TaskModule } from './tasks/task.module'
         TaskModule,
 
         // Features
-
-        // Helpers
+        CompetitionModule,
     ],
     controllers: [AppController],
 })
