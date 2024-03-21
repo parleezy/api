@@ -7,10 +7,25 @@ import { AppController } from './app.controller'
 
 // Core Modules
 import { ConfigModule } from '@/config'
-import { ProvidersModule } from '@/data/providers'
+import { ProvidersModule } from '@/providers/providers.module'
+import { EventModule } from './events/event.module'
+import { TaskModule } from './tasks/task.module'
 
 @Module({
-    imports: [EventEmitterModule.forRoot(), ScheduleModule.forRoot(), ConfigModule, ProvidersModule],
+    imports: [
+        EventEmitterModule.forRoot(),
+        ScheduleModule.forRoot(),
+
+        // Core
+        ConfigModule,
+        ProvidersModule,
+        EventModule,
+        TaskModule,
+
+        // Features
+
+        // Helpers
+    ],
     controllers: [AppController],
 })
 export class AppModule {}
