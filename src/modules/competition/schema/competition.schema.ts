@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 // Schema
 import { CompetitionDates, CompetitionDatesSchema } from './competition-dates.schema'
+import { CompetitionApi, CompetitionApiSchema } from './competition-api.schema'
 
 export type CompetitionDocument = Competition & Document
 
@@ -12,6 +13,9 @@ export type CompetitionDocument = Competition & Document
 })
 export class Competition {
     _id: string
+
+    @Prop({ _id: false, type: CompetitionApiSchema })
+    api: CompetitionApi
 
     @Prop({ _id: false, type: CompetitionDatesSchema })
     dates: CompetitionDates
