@@ -1,4 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
+import { EventEmitter2 } from '@nestjs/event-emitter'
 
 // Types
 import { Api } from '@/data/types/api'
@@ -7,12 +8,14 @@ import { Api } from '@/data/types/api'
 import { Competition } from './schema/competition.schema'
 import { CompetitionFactory } from './competition.factory'
 import { CompetitionRepository } from './competition.repository'
+import { CompetitionCreatedEvent } from './events/competition-create.event'
 
 @Injectable()
 export class CompetitionService {
     constructor(
         private _competitionFactory: CompetitionFactory,
         private _competitionRepository: CompetitionRepository,
+        private _eventEmitter: EventEmitter2,
     ) {}
 
     /**
@@ -26,7 +29,11 @@ export class CompetitionService {
      * Public
      */
     async create(dto: Api.CompetitionCreateParams): Promise<Competition> {
-        return await this._competitionRepository.create(this._competitionFactory.create(dto))
+        const competition = await this._competitionRepository.create(this._competitionFactory.create(dto))
+
+        this._eventEmitter.emit('competition.created', new CompetitionCreatedEvent(competition, 'jfdsfslk'))
+
+        return competition
     }
 
     async list(): Promise<Competition[]> {

@@ -4,7 +4,7 @@ import { Controller, Post, Body } from '@nestjs/common'
 import { Api } from '@/data/types/api'
 
 // League
-import { LeagueService } from './league.service'
+import { LeagueService } from './service/league.service'
 import { League } from './schema/league.schema'
 
 @Controller('leagues')
