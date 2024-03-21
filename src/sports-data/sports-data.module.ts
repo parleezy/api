@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common'
 
-// Module
-import { ApiSportsModule } from './apisports/apisports.module'
-
 // Services
 import { SportsDataService } from './sports-data.service'
+
+// Module
+import { ApiSportsModule } from './apisports/apisports.module'
 
 @Module({
     imports: [ApiSportsModule],

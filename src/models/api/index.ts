@@ -1,3 +1,3 @@
-import * as Api from './response'
+import * as Api from './api'
 
 export { Api }
