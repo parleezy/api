@@ -8,7 +8,7 @@ export class AppController {
             success: true,
             api: 0.1,
             data: {
-                message: 'This API is running successfully.',
+                message: 'The API is running successfully.',
             },
         }
     }
