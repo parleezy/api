@@ -10,10 +10,20 @@ import { ConfigModule } from '@/config'
 import { ProvidersModule } from '@/providers/providers.module'
 
 // Modules
+import { ExternalModule } from './modules/external/external.module'
 import { FeatureModule } from './modules/feature/feature.module'
+import { SystemModule } from './modules/system/system.module'
 
 @Module({
-    imports: [ConfigModule, ProvidersModule, EventEmitterModule.forRoot(), ScheduleModule.forRoot(), FeatureModule],
+    imports: [
+        ConfigModule,
+        ProvidersModule,
+        EventEmitterModule.forRoot(),
+        ScheduleModule.forRoot(),
+        ExternalModule,
+        FeatureModule,
+        SystemModule,
+    ],
     controllers: [AppController],
 })
 export class AppModule {}
