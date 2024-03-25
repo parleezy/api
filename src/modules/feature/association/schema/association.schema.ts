@@ -1,9 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Types } from 'mongoose'
 
-// Competitions
-import { Competition } from '@/competition/competition.schema'
-
 // Leagues
 import { League } from '@/league/schema/league.schema'
 
@@ -16,12 +13,6 @@ export type AssociationDocument = Association & Document
 })
 export class Association {
     _id: string
-
-    @Prop({
-        type: [Types.ObjectId],
-        ref: Competition.name,
-    })
-    competitions: Types.ObjectId[]
 
     @Prop({
         type: [Types.ObjectId],

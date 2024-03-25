@@ -13,8 +13,6 @@ export class LeagueListenerService {
 
     @OnEvent(Event.CompetitionCreated)
     async handleCompetitionCreated(payload: Event.CompetitionEventPayload): Promise<void> {
-        if (payload.entity_type === 'LEAGUE') {
-            await this._leagueService.addCompetition(payload.entity_id, payload.competition)
-        }
+        await this._leagueService.addCompetition(payload.league_id, payload.competition)
     }
 }

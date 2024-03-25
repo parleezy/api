@@ -20,7 +20,7 @@ export class CompetitionService {
     async create(dto: Api.CompetitionCreateParams): Promise<Competition> {
         const competition = await this._competitionRepository.create(this._competitionFactory.create())
 
-        this._events.competitionCreated(competition, dto.entity_type, dto.entity_id)
+        this._events.competitionCreated(competition, dto.league_id)
 
         return competition
     }
