@@ -11,9 +11,17 @@ import { ProvidersModule } from '@/providers/providers.module'
 
 // Features
 import { LeagueModule } from '@/league/league.module'
+import { CompetitionModule } from '@/competition/competition.module'
 
 @Module({
-    imports: [ConfigModule, ProvidersModule, EventEmitterModule.forRoot(), ScheduleModule.forRoot(), LeagueModule],
+    imports: [
+        ConfigModule,
+        ProvidersModule,
+        EventEmitterModule.forRoot(),
+        ScheduleModule.forRoot(),
+        CompetitionModule,
+        LeagueModule,
+    ],
     controllers: [AppController],
 })
 export class AppModule {}
