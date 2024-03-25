@@ -19,6 +19,7 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
+            "@/association/*": ["src/modules/feature/association/*"],
             "@/competition/*": ["src/modules/feature/competition/*"],
             "@/fixture/*": ["src/modules/feature/fixture/*"],
             "@/league/*": ["src/modules/feature/league/*"],
