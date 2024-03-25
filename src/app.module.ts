@@ -7,12 +7,13 @@ import { AppController } from '@/app.controller'
 
 // Core Modules
 import { ConfigModule } from '@/config'
+import { ProvidersModule } from '@/providers/providers.module'
 
 // Features
 import { LeagueModule } from '@/league/league.module'
 
 @Module({
-    imports: [ConfigModule, EventEmitterModule.forRoot(), ScheduleModule.forRoot(), LeagueModule],
+    imports: [ConfigModule, ProvidersModule, EventEmitterModule.forRoot(), ScheduleModule.forRoot(), LeagueModule],
     controllers: [AppController],
 })
 export class AppModule {}
