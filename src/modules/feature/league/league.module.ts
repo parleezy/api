@@ -7,11 +7,12 @@ import { LeagueController } from './league.controller'
 import { LeagueRepository } from './league.repository'
 import { LeagueListenerService } from './services/league-listener.service'
 import { LeagueService } from './services/league.service'
+import { LeagueFactory } from './league.factory'
 
 @Module({
     imports: [MongooseModule.forFeature([{ name: League.name, schema: LeagueSchema }])],
     controllers: [LeagueController],
-    providers: [LeagueListenerService, LeagueRepository, LeagueService],
+    providers: [LeagueFactory, LeagueListenerService, LeagueRepository, LeagueService],
     exports: [LeagueService],
 })
 export class LeagueModule {}

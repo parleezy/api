@@ -1,18 +1,25 @@
 import { Injectable } from '@nestjs/common'
 
-// League
-import { League } from '@/league/schema/league.schema'
-import { LeagueRepository } from '@/league/league.repository'
-
 // Competition
 import { Competition } from '@/modules/feature/competition/schema/competition.schema'
 
+// League
+import { League } from '@/league/schema/league.schema'
+import { LeagueFactory } from '@/league/league.factory'
+import { LeagueRepository } from '@/league/league.repository'
+
+// Models
+import { Api } from '@/models/api'
+
 @Injectable()
 export class LeagueService {
-    constructor(private _leagueRepository: LeagueRepository) {}
+    constructor(
+        private _leagueFactory: LeagueFactory,
+        private _leagueRepository: LeagueRepository,
+    ) {}
 
-    create(): Promise<League> {
-        return this._leagueRepository.create({})
+    create(dto: Api.LeagueCreateParams): Promise<League> {
+        return this._leagueRepository.create(this._leagueFactory.create(dto))
     }
 
     list(): Promise<League[]> {

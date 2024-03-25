@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 
 // Api
 import { Api } from '@/models/api'
@@ -22,8 +22,8 @@ export class LeagueController {
     }
 
     @Post()
-    async create(): Promise<Api.Response<League>> {
-        const data = await this._leagueService.create()
+    async create(@Body() dto: Api.LeagueCreateParams): Promise<Api.Response<League>> {
+        const data = await this._leagueService.create(dto)
 
         return {
             data,

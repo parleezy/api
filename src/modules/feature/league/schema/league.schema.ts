@@ -5,6 +5,7 @@ import { Types } from 'mongoose'
 import { Competition } from '@/modules/feature/competition/schema/competition.schema'
 import { LeagueApi, LeagueApiSchema } from './league-api.schema'
 import { LeagueMeta, LeagueMetaSchema } from './league-meta.schema'
+import { LeagueInfo, LeagueInfoSchema } from './league-info.schema'
 
 export type LeagueDocument = League & Document
 
@@ -24,6 +25,9 @@ export class League {
         ref: Competition.name,
     })
     competitions: Types.ObjectId[]
+
+    @Prop({ _id: false, type: LeagueInfoSchema })
+    info: LeagueInfo
 
     @Prop({ _id: false, type: LeagueMetaSchema })
     meta: LeagueMeta
