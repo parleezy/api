@@ -22,6 +22,7 @@
             "@/competition/*": ["src/modules/feature/competition/*"],
             "@/league/*": ["src/modules/feature/league/*"],
             "@/team/*": ["src/modules/feature/team/*"],
+            "@/venue/*": ["src/modules/feature/venue/*"],
         },
         "types": ["jest", "node"],
     },
