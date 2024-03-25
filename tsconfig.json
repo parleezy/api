@@ -20,6 +20,7 @@
         "paths": {
             "@/*": ["./src/*"],
             "@/competition/*": ["src/modules/feature/competition/*"],
+            "@/fixture/*": ["src/modules/feature/fixture/*"],
             "@/league/*": ["src/modules/feature/league/*"],
             "@/team/*": ["src/modules/feature/team/*"],
             "@/venue/*": ["src/modules/feature/venue/*"],
