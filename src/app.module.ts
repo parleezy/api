@@ -13,6 +13,7 @@ import { TaskModule } from '@/tasks/task.module'
 
 // Modules
 import { CompetitionModule } from '@/modules/competition/competition.module'
+import { LeagueModule } from './modules/league/league.module'
 
 // External Sources
 import { SportsDataModule } from '@/sports-data/sports-data.module'
@@ -30,6 +31,7 @@ import { SportsDataModule } from '@/sports-data/sports-data.module'
 
         // Features
         CompetitionModule,
+        LeagueModule,
 
         // External Api Sources
         SportsDataModule,
