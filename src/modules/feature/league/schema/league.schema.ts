@@ -1,4 +1,8 @@
-import { Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Types } from 'mongoose'
+
+// Competitions
+import { Competition } from '@/competition/competition.schema'
 
 export type LeagueDocument = League & Document
 
@@ -9,6 +13,12 @@ export type LeagueDocument = League & Document
 })
 export class League {
     _id: string
+
+    @Prop({
+        type: [Types.ObjectId],
+        ref: Competition.name,
+    })
+    competitions: Types.ObjectId[]
 }
 
 const LeagueSchema = SchemaFactory.createForClass(League)

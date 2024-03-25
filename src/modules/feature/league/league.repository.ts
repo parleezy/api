@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 // League
-import { League, LeagueDocument } from './league.schema'
+import { League, LeagueDocument } from './schema/league.schema'
 
 // Generic Repo
 import { MongoRepository } from '@/providers/mongo/mongo.repository'
@@ -11,6 +11,6 @@ import { MongoRepository } from '@/providers/mongo/mongo.repository'
 @Injectable()
 export class LeagueRepository extends MongoRepository<LeagueDocument> {
     constructor(@InjectModel(League.name) leagueModel: Model<LeagueDocument>) {
-        super(leagueModel)
+        super(leagueModel, ['competitions'])
     }
 }

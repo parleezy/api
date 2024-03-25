@@ -19,8 +19,8 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["./src/*"],
-            "@/competition/*": ["src/modules/competition/*"],
-            "@/league/*": ["src/modules/league/*"],
+            "@/competition/*": ["src/modules/feature/competition/*"],
+            "@/league/*": ["src/modules/feature/league/*"],
         },
         "types": ["jest", "node"],
     },

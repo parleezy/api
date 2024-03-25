@@ -4,8 +4,8 @@ import { Controller, Get, Param, Post } from '@nestjs/common'
 import { Api } from '@/models/api'
 
 // League
-import { League } from './league.schema'
-import { LeagueService } from './league.service'
+import { League } from './schema/league.schema'
+import { LeagueService } from './services/league.service'
 
 @Controller('leagues')
 export class LeagueController {

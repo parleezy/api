@@ -4,13 +4,15 @@ import { MongooseModule } from '@nestjs/mongoose'
 // Competition
 import { Competition, CompetitionSchema } from './competition.schema'
 import { CompetitionController } from './competition.controller'
+import { CompetitionFactory } from './competition.factory'
 import { CompetitionRepository } from './competition.repository'
-import { CompetitionService } from './competition.service'
+import { CompetitionService } from './services/competition.service'
+import { CompetitionEventService } from './services/competition-events.service'
 
 @Module({
     imports: [MongooseModule.forFeature([{ name: Competition.name, schema: CompetitionSchema }])],
     controllers: [CompetitionController],
-    providers: [CompetitionRepository, CompetitionService],
+    providers: [CompetitionEventService, CompetitionFactory, CompetitionRepository, CompetitionService],
     exports: [CompetitionService],
 })
 export class CompetitionModule {}

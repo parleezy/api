@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common'
-import { LeagueRepository } from './league.repository'
-import { League } from './league.schema'
+
+// League
+import { League } from '@/league/schema/league.schema'
+import { LeagueRepository } from '@/league/league.repository'
+
+// Competition
+import { Competition } from '@/competition/competition.schema'
 
 @Injectable()
 export class LeagueService {
@@ -16,5 +21,9 @@ export class LeagueService {
 
     retrieve(id: string): Promise<League> {
         return this._leagueRepository.retrieve(id)
+    }
+
+    async addCompetition(league: string, competition: Competition): Promise<League> {
+        return await this._leagueRepository.update(league, { $push: { competitions: competition._id } })
     }
 }

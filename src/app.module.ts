@@ -9,19 +9,11 @@ import { AppController } from '@/app.controller'
 import { ConfigModule } from '@/config'
 import { ProvidersModule } from '@/providers/providers.module'
 
-// Features
-import { LeagueModule } from '@/league/league.module'
-import { CompetitionModule } from '@/competition/competition.module'
+// Modules
+import { FeatureModule } from './modules/feature/feature.module'
 
 @Module({
-    imports: [
-        ConfigModule,
-        ProvidersModule,
-        EventEmitterModule.forRoot(),
-        ScheduleModule.forRoot(),
-        CompetitionModule,
-        LeagueModule,
-    ],
+    imports: [ConfigModule, ProvidersModule, EventEmitterModule.forRoot(), ScheduleModule.forRoot(), FeatureModule],
     controllers: [AppController],
 })
 export class AppModule {}
