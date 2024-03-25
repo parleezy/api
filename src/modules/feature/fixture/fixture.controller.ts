@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 
 // Api
 import { Api } from '@/models/api'
@@ -22,8 +22,8 @@ export class FixtureController {
     }
 
     @Post()
-    async create(): Promise<Api.Response<Fixture>> {
-        const data = await this._fixtureService.create()
+    async create(@Body() dto: Api.FixtureCreateParams): Promise<Api.Response<Fixture>> {
+        const data = await this._fixtureService.create(dto)
 
         return {
             data,
