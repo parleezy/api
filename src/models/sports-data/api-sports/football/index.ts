@@ -1,5 +1,0 @@
-export * from './_football-league.interface'
-export * from './_football-season-coverage.interface'
-export * from './_football-season.interface'
-export * from './_football-team.interface'
-export * from './_football-venue.interface'
