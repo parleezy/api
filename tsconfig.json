@@ -21,6 +21,7 @@
             "@/*": ["./src/*"],
             "@/competition/*": ["src/modules/feature/competition/*"],
             "@/league/*": ["src/modules/feature/league/*"],
+            "@/team/*": ["src/modules/feature/team/*"],
         },
         "types": ["jest", "node"],
     },
