@@ -5,7 +5,7 @@ import { League } from '@/league/schema/league.schema'
 import { LeagueRepository } from '@/league/league.repository'
 
 // Competition
-import { Competition } from '@/competition/competition.schema'
+import { Competition } from '@/modules/feature/competition/schema/competition.schema'
 
 @Injectable()
 export class LeagueService {

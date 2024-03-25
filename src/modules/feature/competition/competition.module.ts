@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 
 // Competition
-import { Competition, CompetitionSchema } from './competition.schema'
+import { Competition, CompetitionSchema } from './schema/competition.schema'
 import { CompetitionController } from './competition.controller'
 import { CompetitionFactory } from './competition.factory'
 import { CompetitionRepository } from './competition.repository'

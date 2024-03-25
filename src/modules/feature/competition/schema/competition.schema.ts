@@ -1,4 +1,8 @@
-import { Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+
+// Schema
+import { CompetitionApi, CompetitionApiSchema } from './competition-api.schema'
+import { CompetitionCoverage, CompetitionCoverageSchema } from './competition-coverage.schema'
 
 export type CompetitionDocument = Competition & Document
 
@@ -9,6 +13,12 @@ export type CompetitionDocument = Competition & Document
 })
 export class Competition {
     _id: string
+
+    @Prop({ _id: false, type: CompetitionApiSchema })
+    api: CompetitionApi
+
+    @Prop({ _id: false, type: CompetitionCoverageSchema })
+    coverage: CompetitionCoverage
 }
 
 const CompetitionSchema = SchemaFactory.createForClass(Competition)

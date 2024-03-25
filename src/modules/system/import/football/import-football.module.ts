@@ -7,4 +7,4 @@ import { ApiSportsModule } from '@/modules/external/api-sports/api-sports.module
     imports: [ApiSportsModule],
     exports: [],
 })
-export class ImportModule {}
+export class ImportFootballModule {}

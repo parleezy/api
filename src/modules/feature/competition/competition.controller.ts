@@ -4,7 +4,7 @@ import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 import { Api } from '@/models/api'
 
 // Competition
-import { Competition } from './competition.schema'
+import { Competition } from './schema/competition.schema'
 import { CompetitionService } from './services/competition.service'
 
 @Controller('competitions')

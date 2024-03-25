@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 // Competition
-import { Competition, CompetitionDocument } from './Competition.schema'
+import { Competition, CompetitionDocument } from './schema/competition.schema'
 
 // Generic Repo
 import { MongoRepository } from '@/providers/mongo/mongo.repository'

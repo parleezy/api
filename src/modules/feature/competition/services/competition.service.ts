@@ -4,7 +4,7 @@ import { Injectable } from '@nestjs/common'
 import { Api } from '@/models/api'
 
 // Competition
-import { Competition } from '../competition.schema'
+import { Competition } from '../schema/competition.schema'
 import { CompetitionRepository } from '../competition.repository'
 import { CompetitionFactory } from '../competition.factory'
 import { CompetitionEventService } from './competition-events.service'

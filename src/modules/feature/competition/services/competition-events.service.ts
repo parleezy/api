@@ -5,7 +5,7 @@ import { EventEmitter2 } from '@nestjs/event-emitter'
 import { Event } from '@/models/event'
 
 // Schemas
-import { Competition } from '@/competition/competition.schema'
+import { Competition } from '@/modules/feature/competition/schema/competition.schema'
 
 @Injectable()
 export class CompetitionEventService {

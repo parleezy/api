@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 
 // Competition
-import { Competition } from './competition.schema'
+import { Competition } from './schema/competition.schema'
 
 @Injectable()
 export class CompetitionFactory {

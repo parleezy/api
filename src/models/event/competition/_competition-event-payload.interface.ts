@@ -1,4 +1,4 @@
-import { Competition } from '@/competition/competition.schema'
+import { Competition } from '@/modules/feature/competition/schema/competition.schema'
 
 export interface CompetitionEventPayload {
     competition: Competition

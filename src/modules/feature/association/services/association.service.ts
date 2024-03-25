@@ -9,7 +9,7 @@ import { AssociationFactory } from '@/association/association.factory'
 import { AssociationRepository } from '@/association/association.repository'
 
 // Competition
-import { Competition } from '@/competition/competition.schema'
+import { Competition } from '@/modules/feature/competition/schema/competition.schema'
 
 @Injectable()
 export class AssociationService {
