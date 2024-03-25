@@ -8,8 +8,11 @@ import { CompetitionFactory } from './competition.factory'
 import { CompetitionRepository } from './competition.repository'
 import { CompetitionService } from './services/competition.service'
 
+// Module
+import { SportsDataModule } from '@/sports-data/sports-data.module'
+
 @Module({
-    imports: [MongooseModule.forFeature([{ name: Competition.name, schema: CompetitionSchema }])],
+    imports: [MongooseModule.forFeature([{ name: Competition.name, schema: CompetitionSchema }]), SportsDataModule],
     controllers: [CompetitionController],
     providers: [CompetitionFactory, CompetitionRepository, CompetitionService],
     exports: [CompetitionService],
