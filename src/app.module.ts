@@ -12,21 +12,27 @@ import { EventModule } from '@/events/event.module'
 import { TaskModule } from '@/tasks/task.module'
 
 // Modules
-import { CompetitionModule } from './modules/competition/competition.module'
+import { CompetitionModule } from '@/modules/competition/competition.module'
+
+// External Sources
+import { SportsDataModule } from '@/sports-data/sports-data.module'
 
 @Module({
     imports: [
+        ConfigModule,
         EventEmitterModule.forRoot(),
         ScheduleModule.forRoot(),
 
         // Core
-        ConfigModule,
         ProvidersModule,
         EventModule,
         TaskModule,
 
         // Features
         CompetitionModule,
+
+        // External Api Sources
+        SportsDataModule,
     ],
     controllers: [AppController],
 })
