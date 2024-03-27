@@ -18,7 +18,7 @@ export class CompetitionApi {
     @Prop({
         type: Number,
     })
-    id: number
+    id: number // API id
 }
 
 export const CompetitionApiSchema = SchemaFactory.createForClass(CompetitionApi)

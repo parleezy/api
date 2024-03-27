@@ -4,11 +4,24 @@ import { Injectable } from '@nestjs/common'
 import { Api } from '@/models/api'
 import { ApiSportsType } from '@/models/api-sports'
 
+// Schemas
+import { League } from '@/modules/feature/league/schema/league.schema'
+
 // Utils
 import { getRegionByCountryCode, getSubRegionByCountryCode } from '@/utils'
 
 @Injectable()
 export class ImportFootballFactory {
+    competitionDTO(league: League, dto: Api.ImportFootballCompetitionParams): Api.CompetitionCreateParams {
+        return {
+            league_id: dto.league_id,
+            available: true,
+            host: Api.HostType.API_SPORTS,
+            id: dto.api_id,
+            ...league.meta,
+        }
+    }
+
     leagueDTO(league: ApiSportsType.FootballLeague): Api.LeagueCreateParams {
         return {
             available: true,
