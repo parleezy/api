@@ -6,10 +6,12 @@ import { Api } from '@/models/api'
 
 // Schema
 import { CompetitionApi, CompetitionApiSchema } from './competition-api.schema'
+import { CompetitionConfig, CompetitionConfigSchema } from './competition-config.schema'
 import { CompetitionCoverage, CompetitionCoverageSchema } from './competition-coverage/competition-coverage.schema'
 import { CompetitionDates, CompetitionDatesSchema } from './competition-dates.schema'
 import { CompetitionMeta, CompetitionMetaSchema } from './competition-meta.schema'
 import { CompetitionParticipants, CompetitionParticipantsSchema } from './competition-participants.schema'
+import { CompetitionSettings, CompetitionSettingsSchema } from './competition-settings.schema'
 import { Venue } from '@/venue/schema/venue.schema'
 
 export type CompetitionDocument = Competition & Document
@@ -45,6 +47,9 @@ export class Competition {
     @Prop({ _id: false, type: CompetitionApiSchema })
     api: CompetitionApi
 
+    @Prop({ _id: false, type: CompetitionConfigSchema })
+    config: CompetitionConfig
+
     @Prop({ _id: false, type: CompetitionCoverageSchema })
     coverage: CompetitionCoverage
 
@@ -56,6 +61,9 @@ export class Competition {
 
     @Prop({ _id: false, type: CompetitionParticipantsSchema })
     participants: CompetitionParticipants
+
+    @Prop({ _id: false, type: CompetitionSettingsSchema })
+    settings: CompetitionSettings
 }
 
 const CompetitionSchema = SchemaFactory.createForClass(Competition)
