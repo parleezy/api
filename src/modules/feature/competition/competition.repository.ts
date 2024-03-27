@@ -11,6 +11,6 @@ import { MongoRepository } from '@/providers/mongo/mongo.repository'
 @Injectable()
 export class CompetitionRepository extends MongoRepository<CompetitionDocument> {
     constructor(@InjectModel(Competition.name) competitionModel: Model<CompetitionDocument>) {
-        super(competitionModel)
+        super(competitionModel, ['participants.teams'])
     }
 }

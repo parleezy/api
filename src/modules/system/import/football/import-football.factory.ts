@@ -12,21 +12,42 @@ import { getRegionByCountryCode, getSubRegionByCountryCode } from '@/utils'
 
 @Injectable()
 export class ImportFootballFactory {
-    competitionDTO(league: League, dto: Api.ImportFootballCompetitionParams): Api.CompetitionCreateParams {
+    competitionDTO(
+        league: League,
+        api_league: ApiSportsType.FootballLeague,
+        season: ApiSportsType.FootballSeason,
+        dto: Api.ImportFootballCompetitionParams,
+    ): Api.CompetitionCreateParams {
         return {
             league_id: dto.league_id,
-            available: true,
-            host: Api.HostType.API_SPORTS,
-            id: dto.api_id,
-            ...league.meta,
+            api_available: true,
+            api_host: Api.HostType.API_SPORTS,
+            api_id: dto.api_id,
+            competition_type: api_league.league.type,
+            coverage_events: season.coverage.fixtures.events,
+            coverage_lineups: season.coverage.fixtures.lineups,
+            coverage_statistics_players: season.coverage.fixtures.statistics_fixtures,
+            coverage_statistics_teams: season.coverage.fixtures.statistics_players,
+            coverage_predictions: season.coverage.predictions,
+            coverage_odds: season.coverage.odds,
+            coverage_assists: season.coverage.top_assists,
+            coverage_cards: season.coverage.top_cards,
+            coverage_players: season.coverage.players,
+            coverage_scorers: season.coverage.top_scorers,
+            coverage_standings: season.coverage.standings,
+            date_start: new Date(season.start),
+            date_end: new Date(season.end),
+            country: league.meta.country,
+            region: league.meta.region,
+            subregion: league.meta.subregion,
         }
     }
 
     leagueDTO(league: ApiSportsType.FootballLeague): Api.LeagueCreateParams {
         return {
-            available: true,
-            host: Api.HostType.API_SPORTS,
-            id: league.league.id,
+            api_available: true,
+            api_host: Api.HostType.API_SPORTS,
+            api_id: league.league.id,
             name: league.league.name,
             country: league.country.code,
             region: getRegionByCountryCode(league.country.code as Api.CountryType),

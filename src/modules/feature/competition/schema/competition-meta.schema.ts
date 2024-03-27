@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 import { Api } from '@/models/api'
+import { Types } from 'mongoose'
 
 @Schema({
     _id: false,
@@ -23,6 +24,12 @@ export class CompetitionMeta {
         enum: [...Object.values(Api.CountryType)],
     })
     country: string
+
+    @Prop({
+        type: Types.ObjectId,
+        required: true,
+    })
+    league: Types.ObjectId
 }
 
 export const CompetitionMetaSchema = SchemaFactory.createForClass(CompetitionMeta)

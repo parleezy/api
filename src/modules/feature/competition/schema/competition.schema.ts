@@ -1,9 +1,16 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
+import { Types } from 'mongoose'
+
+// Types
+import { Api } from '@/models/api'
 
 // Schema
 import { CompetitionApi, CompetitionApiSchema } from './competition-api.schema'
 import { CompetitionCoverage, CompetitionCoverageSchema } from './competition-coverage/competition-coverage.schema'
+import { CompetitionDates, CompetitionDatesSchema } from './competition-dates.schema'
 import { CompetitionMeta, CompetitionMetaSchema } from './competition-meta.schema'
+import { CompetitionParticipants, CompetitionParticipantsSchema } from './competition-participants.schema'
+import { Venue } from '@/venue/schema/venue.schema'
 
 export type CompetitionDocument = Competition & Document
 
@@ -15,14 +22,40 @@ export type CompetitionDocument = Competition & Document
 export class Competition {
     _id: string
 
+    @Prop({
+        type: String,
+        enum: [...Object.values(Api.CompetitionStatusType)],
+        default: Api.CompetitionStatusType.ANNOUNCED,
+    })
+    status: string
+
+    @Prop({
+        type: String,
+        enum: [...Object.values(Api.CompetitionType)],
+        default: Api.CompetitionType.LEAGUE,
+    })
+    type: string
+
+    @Prop({
+        type: [Types.ObjectId],
+        ref: Venue.name,
+    })
+    venues: Types.ObjectId[]
+
     @Prop({ _id: false, type: CompetitionApiSchema })
     api: CompetitionApi
 
     @Prop({ _id: false, type: CompetitionCoverageSchema })
     coverage: CompetitionCoverage
 
+    @Prop({ _id: false, type: CompetitionDatesSchema })
+    dates: CompetitionDates
+
     @Prop({ _id: false, type: CompetitionMetaSchema })
     meta: CompetitionMeta
+
+    @Prop({ _id: false, type: CompetitionParticipantsSchema })
+    participants: CompetitionParticipants
 }
 
 const CompetitionSchema = SchemaFactory.createForClass(Competition)

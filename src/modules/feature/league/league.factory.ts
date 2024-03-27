@@ -12,9 +12,9 @@ export class LeagueFactory {
         const league = new League()
 
         league.api = {
-            available: dto.available,
-            host: dto.host,
-            id: dto.id,
+            available: dto.api_available,
+            host: dto.api_host,
+            id: dto.api_id,
         }
 
         league.info = {

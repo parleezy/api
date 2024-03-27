@@ -3,15 +3,15 @@ import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-val
 export class LeagueCreateParams {
     @IsBoolean()
     @IsNotEmpty()
-    available: boolean
+    api_available: boolean
 
     @IsString()
     @IsOptional()
-    host: string
+    api_host: string
 
     @IsNumber()
     @IsOptional()
-    id: number
+    api_id: number
 
     @IsString()
     @IsNotEmpty()

@@ -1,21 +1,25 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
 
 export class CompetitionCreateParams {
     @IsString()
     @IsNotEmpty()
     league_id: string
 
+    @IsString()
+    @IsNotEmpty()
+    competition_type: string
+
     @IsBoolean()
     @IsNotEmpty()
-    available: boolean
+    api_available: boolean
 
     @IsString()
     @IsOptional()
-    host: string
+    api_host: string
 
     @IsNumber()
     @IsOptional()
-    id: number
+    api_id: number
 
     @IsString()
     @IsNotEmpty()
@@ -28,4 +32,58 @@ export class CompetitionCreateParams {
     @IsString()
     @IsNotEmpty()
     country: string
+
+    // Coverage
+    @IsBoolean()
+    @IsOptional()
+    coverage_events: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_lineups: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_statistics_players: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_statistics_teams: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_predictions: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_odds: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_assists: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_cards: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_players: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_scorers: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    coverage_standings: boolean
+
+    // Dates
+    @IsDate()
+    @IsNotEmpty()
+    date_start: Date
+
+    @IsDate()
+    @IsNotEmpty()
+    date_end: Date
 }
