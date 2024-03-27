@@ -1,5 +1,6 @@
 export * from './association'
 export * from './competition'
+export * from './external'
 export * from './fixture'
 export * from './league'
 export * from './meta'

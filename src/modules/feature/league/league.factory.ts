@@ -8,7 +8,25 @@ import { Api } from '@/models/api'
 
 @Injectable()
 export class LeagueFactory {
-    create(_: Api.LeagueCreateParams): League {
-        return new League()
+    create(dto: Api.LeagueCreateParams): League {
+        const league = new League()
+
+        league.api = {
+            available: dto.available,
+            host: dto.host,
+            id: dto.id,
+        }
+
+        league.info = {
+            name: dto.name,
+        }
+
+        league.meta = {
+            country: dto.country,
+            region: dto.region,
+            subregion: dto.subregion,
+        }
+
+        return league
     }
 }

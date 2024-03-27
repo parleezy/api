@@ -14,7 +14,7 @@ export class ApiSportsFootballService {
             baseURL: `https://v3.football.api-sports.io/`,
             headers: {
                 'Content-Type': 'application/json',
-                'x-apisports-key': this._configService.get<string>('sports-data.apisports'),
+                'x-apisports-key': this._configService.get<string>('external.apisports'),
             },
         })
     }
@@ -28,7 +28,7 @@ export class ApiSportsFootballService {
     async getLeagueById(id: string): Promise<ApiSportsType.FootballLeague | null> {
         const response = await this._api.get(`/leagues?id=${id}`)
 
-        return response.data.response
+        return response.data.response[0]
     }
 
     async getCompetitionTeams(league: string, season: string): Promise<ApiSportsType.FootballTeam[]> {
