@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post } from '@nestjs/common'
+import { Body, Controller, Get, Param, Post } from '@nestjs/common'
 
 // Api
 import { Api } from '@/models/api'
@@ -22,8 +22,8 @@ export class TeamController {
     }
 
     @Post()
-    async create(): Promise<Api.Response<Team>> {
-        const data = await this._teamService.create()
+    async create(@Body() dto: Api.TeamCreateParams): Promise<Api.Response<Team>> {
+        const data = await this._teamService.create(dto)
 
         return {
             data,

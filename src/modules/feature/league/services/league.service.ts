@@ -26,11 +26,22 @@ export class LeagueService {
         return this._leagueRepository.list()
     }
 
-    retrieve(id: string): Promise<League> {
-        return this._leagueRepository.retrieve(id)
-    }
-
     async addCompetition(league: string, competition: Competition): Promise<League> {
         return await this._leagueRepository.update(league, { $push: { competitions: competition._id } })
+    }
+
+    get retrieve() {
+        return {
+            id: (id: string): Promise<League | null> => {
+                return this._leagueRepository.retrieve(id)
+            },
+            external: (id: number): Promise<League | null> => {
+                const league = this._leagueRepository.search({
+                    'hook.id': id,
+                })
+
+                return league[0]
+            },
+        }
     }
 }

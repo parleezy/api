@@ -23,6 +23,12 @@ export class TeamMeta {
         enum: [...Object.values(Api.CountryType)],
     })
     country: string
+
+    @Prop({
+        type: [String],
+        default: [],
+    })
+    keywords: string[]
 }
 
 export const TeamMetaSchema = SchemaFactory.createForClass(TeamMeta)

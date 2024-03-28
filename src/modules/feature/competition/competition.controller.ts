@@ -33,7 +33,7 @@ export class CompetitionController {
 
     @Get(`:id`)
     async getById(@Param('id') id: string): Promise<Api.Response<Competition>> {
-        const data = await this._competitionService.retrieve(id)
+        const data = await this._competitionService.retrieve.id(id)
 
         return {
             data,

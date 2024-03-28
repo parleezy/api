@@ -9,6 +9,7 @@ import { League } from '@/modules/feature/league/schema/league.schema'
 
 // Utils
 import { getRegionByCountryCode, getSubRegionByCountryCode } from '@/utils'
+import { getCountryByName } from '@/utils/getCountryByName.util'
 
 @Injectable()
 export class ImportFootballFactory {
@@ -72,6 +73,35 @@ export class ImportFootballFactory {
 
             // Settings
             settings_initialised: false,
+            settings_published: false,
+            settings_sanitized: false,
+            settings_searchable: false,
+        }
+    }
+
+    teamDTO(team: ApiSportsType.FootballTeam): Api.TeamCreateParams {
+        const country = team.country.length > 2 ? getCountryByName(team.country) : (team.country as Api.CountryType)
+
+        return {
+            // External Hook
+            hook_available: true,
+            hook_host: Api.HostType.API_SPORTS,
+            hook_id: team.id,
+
+            // Info
+            info_code: team.code,
+            info_country: country,
+            info_name: team.name,
+            info_founded: team.founded,
+            info_shortname: team.name,
+
+            // Meta Data
+            meta_country: country,
+            meta_region: getRegionByCountryCode(country),
+            meta_subregion: getSubRegionByCountryCode(country),
+            meta_keywords: [],
+
+            // Settings
             settings_published: false,
             settings_sanitized: false,
             settings_searchable: false,

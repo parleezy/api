@@ -44,4 +44,14 @@ export class ImportFootballController {
             success: true,
         }
     }
+
+    @Post('competition/initialise/:id')
+    async initialiseCompetition(@Param('id') id: string): Promise<Api.Response<Competition>> {
+        const data = await this._importFootballService.initialise.competition(id)
+
+        return {
+            data,
+            success: true,
+        }
+    }
 }

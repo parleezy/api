@@ -3,7 +3,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 @Schema({
     _id: false,
 })
-export class TeamApi {
+export class TeamHook {
     @Prop({
         type: Boolean,
         required: true,
@@ -21,4 +21,4 @@ export class TeamApi {
     id: number // API id
 }
 
-export const TeamApiSchema = SchemaFactory.createForClass(TeamApi)
+export const TeamHookSchema = SchemaFactory.createForClass(TeamHook)

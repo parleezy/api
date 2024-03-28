@@ -14,6 +14,12 @@ export class TeamSettings {
         type: Boolean,
         default: true,
     })
+    sanitized: boolean
+
+    @Prop({
+        type: Boolean,
+        default: true,
+    })
     searchable: boolean
 }
 

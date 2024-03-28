@@ -10,6 +10,11 @@ export class TeamInfo {
     code: string
 
     @Prop({
+        type: String,
+    })
+    country: string
+
+    @Prop({
         type: Number,
     })
     founded: number

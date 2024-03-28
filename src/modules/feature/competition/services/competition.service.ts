@@ -9,6 +9,9 @@ import { CompetitionRepository } from '../competition.repository'
 import { CompetitionFactory } from '../competition.factory'
 import { CompetitionEventService } from './competition-events.service'
 
+// Team
+import { Team } from '@/team/schema/team.schema'
+
 @Injectable()
 export class CompetitionService {
     constructor(
@@ -29,7 +32,24 @@ export class CompetitionService {
         return this._competitionRepository.list()
     }
 
-    retrieve(id: string): Promise<Competition> {
-        return this._competitionRepository.retrieve(id)
+    async addTeams(competition: Competition, teams: Team[]): Promise<Competition> {
+        return await this._competitionRepository.update(competition._id, {
+            $push: { 'participants.teams': { $each: teams.map((t) => t._id) } },
+        })
+    }
+
+    get retrieve() {
+        return {
+            id: (id: string): Promise<Competition | null> => {
+                return this._competitionRepository.retrieve(id)
+            },
+            external: (id: number): Promise<Competition | null> => {
+                const competition = this._competitionRepository.search({
+                    'hook.id': id,
+                })
+
+                return competition[0]
+            },
+        }
     }
 }

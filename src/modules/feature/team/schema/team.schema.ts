@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 
 // Schema
-import { TeamApi, TeamApiSchema } from './team-api.schema'
+import { TeamHook, TeamHookSchema } from './team-hook.schema'
 import { TeamInfo, TeamInfoSchema } from './team-info.schema'
 import { TeamMeta, TeamMetaSchema } from './team-meta.schema'
 import { TeamSettings, TeamSettingsSchema } from './team-settings.schema'
@@ -16,8 +16,8 @@ export type TeamDocument = Team & Document
 export class Team {
     _id: string
 
-    @Prop({ _id: false, type: TeamApiSchema })
-    api: TeamApi
+    @Prop({ _id: false, type: TeamHookSchema })
+    hook: TeamHook
 
     @Prop({ _id: false, type: TeamInfoSchema })
     info: TeamInfo

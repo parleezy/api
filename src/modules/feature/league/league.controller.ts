@@ -33,7 +33,7 @@ export class LeagueController {
 
     @Get(`:id`)
     async getById(@Param('id') id: string): Promise<Api.Response<League>> {
-        const data = await this._leagueService.retrieve(id)
+        const data = await this._leagueService.retrieve.id(id)
 
         return {
             data,
