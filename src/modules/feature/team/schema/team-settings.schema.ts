@@ -8,7 +8,13 @@ export class TeamSettings {
         type: Boolean,
         default: true,
     })
-    active: boolean
+    published: boolean
+
+    @Prop({
+        type: Boolean,
+        default: true,
+    })
+    searchable: boolean
 }
 
 export const TeamSettingsSchema = SchemaFactory.createForClass(TeamSettings)

@@ -9,10 +9,11 @@ import { LeagueModule } from '@/modules/feature/league/league.module'
 import { ImportFootballController } from './import-football.controller'
 import { ImportFootballService } from './import-football.service'
 import { ImportFootballFactory } from './import-football.factory'
+import { TeamModule } from '@/modules/feature/team/team.module'
 
 @Module({
     controllers: [ImportFootballController],
-    imports: [ApiSportsModule, CompetitionModule, LeagueModule],
+    imports: [ApiSportsModule, CompetitionModule, LeagueModule, TeamModule],
     providers: [ImportFootballService, ImportFootballFactory],
 })
 export class ImportFootballModule {}

@@ -1,3 +1,4 @@
+export * from './_football-fixture.interface'
 export * from './_football-league.interface'
 export * from './_football-season-coverage.interface'
 export * from './_football-season.interface'

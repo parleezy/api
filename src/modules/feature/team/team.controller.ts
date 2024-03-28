@@ -33,7 +33,7 @@ export class TeamController {
 
     @Get(`:id`)
     async getById(@Param('id') id: string): Promise<Api.Response<Team>> {
-        const data = await this._teamService.retrieve(id)
+        const data = await this._teamService.retrieve.id(id)
 
         return {
             data,

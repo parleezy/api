@@ -12,10 +12,12 @@ export class CompetitionFactory {
     create(dto: Api.CompetitionCreateParams): Competition {
         const competition = new Competition()
 
-        competition.api = {
-            available: dto.api_available,
-            host: dto.api_host,
-            id: dto.api_id,
+        competition.slug = dto.slug
+
+        competition.hook = {
+            available: dto.hook_available,
+            host: dto.hook_host,
+            id: dto.hook_id,
         }
 
         // Coverage
@@ -47,12 +49,17 @@ export class CompetitionFactory {
             end: dto.date_end,
         }
 
+        // Entities
+        competition.entities = {
+            league: dto.league_id as unknown as Types.ObjectId,
+        }
+
         // Meta Data
         competition.meta = {
-            country: dto.country,
-            region: dto.region,
-            subregion: dto.subregion,
-            league: dto.league_id as unknown as Types.ObjectId,
+            country: dto.meta_country,
+            region: dto.meta_region,
+            subregion: dto.meta_subregion,
+            keywords: dto.meta_keywords,
         }
 
         // Participants

@@ -1,39 +1,58 @@
-import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { IsArray, IsBoolean, IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
 
 export class CompetitionCreateParams {
     @IsString()
     @IsNotEmpty()
     league_id: string
 
+    /**
+     * GENERAL
+     */
+    @IsString()
+    @IsNotEmpty()
+    slug: string
+
     @IsString()
     @IsNotEmpty()
     competition_type: string
 
+    /**
+     * HOOK
+     */
     @IsBoolean()
     @IsNotEmpty()
-    api_available: boolean
+    hook_available: boolean
 
     @IsString()
     @IsOptional()
-    api_host: string
+    hook_host: string
 
     @IsNumber()
     @IsOptional()
-    api_id: number
+    hook_id: number
+
+    /**
+     * METADATA
+     */
+    @IsString()
+    @IsNotEmpty()
+    meta_country: string
+
+    @IsArray()
+    @IsOptional()
+    meta_keywords: string[]
 
     @IsString()
     @IsNotEmpty()
-    region: string
+    meta_region: string
 
     @IsString()
     @IsNotEmpty()
-    subregion: string
+    meta_subregion: string
 
-    @IsString()
-    @IsNotEmpty()
-    country: string
-
-    // Coverage
+    /**
+     * COVERAGE
+     */
     @IsBoolean()
     @IsOptional()
     coverage_events: boolean
@@ -78,7 +97,9 @@ export class CompetitionCreateParams {
     @IsOptional()
     coverage_standings: boolean
 
-    // Dates
+    /**
+     * DATES
+     */
     @IsDate()
     @IsNotEmpty()
     date_start: Date
@@ -86,4 +107,8 @@ export class CompetitionCreateParams {
     @IsDate()
     @IsNotEmpty()
     date_end: Date
+
+    /**
+     * SETTINGS
+     */
 }

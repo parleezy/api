@@ -1,31 +1,71 @@
-import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
+import { IsArray, IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from 'class-validator'
 
 export class LeagueCreateParams {
+    /**
+     * GENERAL
+     */
+    @IsString()
+    @IsNotEmpty()
+    slug: string
+
+    /**
+     * HOOK
+     * External Source
+     */
     @IsBoolean()
     @IsNotEmpty()
-    api_available: boolean
+    hook_available: boolean
 
     @IsString()
     @IsOptional()
-    api_host: string
+    hook_host: string
 
     @IsNumber()
     @IsOptional()
-    api_id: number
+    hook_id: number
 
+    /**
+     * INFO
+     */
     @IsString()
     @IsNotEmpty()
     name: string
 
+    /**
+     * META
+     */
     @IsString()
     @IsNotEmpty()
-    region: string
+    meta_region: string
 
     @IsString()
     @IsNotEmpty()
-    subregion: string
+    meta_subregion: string
 
     @IsString()
     @IsNotEmpty()
-    country: string
+    meta_country: string
+
+    @IsArray()
+    @IsOptional()
+    meta_keywords: string[]
+
+    /**
+     * SETTINGS
+     */
+    @IsBoolean()
+    @IsOptional()
+    settings_initialised: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    settings_published: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    settings_sanitized: boolean
+
+    @IsBoolean()
+    @IsOptional()
+    settings_searchable: boolean
 }

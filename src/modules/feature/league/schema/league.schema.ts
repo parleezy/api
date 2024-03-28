@@ -2,10 +2,11 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose'
 import { Types } from 'mongoose'
 
 // Schemas
-import { Competition } from '@/modules/feature/competition/schema/competition.schema'
-import { LeagueApi, LeagueApiSchema } from './league-api.schema'
+import { Competition } from '@/competition/schema/competition.schema'
+import { LeagueHook, LeagueHookSchema } from './league-hook.schema'
 import { LeagueMeta, LeagueMetaSchema } from './league-meta.schema'
 import { LeagueInfo, LeagueInfoSchema } from './league-info.schema'
+import { LeagueSettings, LeagueSettingsSchema } from './league-settings.schema'
 
 export type LeagueDocument = League & Document
 
@@ -17,8 +18,16 @@ export type LeagueDocument = League & Document
 export class League {
     _id: string
 
-    @Prop({ _id: false, type: LeagueApiSchema })
-    api: LeagueApi
+    @Prop({
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
+    })
+    slug: string
+
+    @Prop({ _id: false, type: LeagueHookSchema })
+    hook: LeagueHook
 
     @Prop({
         type: [Types.ObjectId],
@@ -31,6 +40,9 @@ export class League {
 
     @Prop({ _id: false, type: LeagueMetaSchema })
     meta: LeagueMeta
+
+    @Prop({ _id: false, type: LeagueSettingsSchema })
+    settings: LeagueSettings
 }
 
 const LeagueSchema = SchemaFactory.createForClass(League)

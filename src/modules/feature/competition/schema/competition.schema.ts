@@ -5,10 +5,11 @@ import { Types } from 'mongoose'
 import { Api } from '@/models/api'
 
 // Schema
-import { CompetitionApi, CompetitionApiSchema } from './competition-api.schema'
 import { CompetitionConfig, CompetitionConfigSchema } from './competition-config.schema'
 import { CompetitionCoverage, CompetitionCoverageSchema } from './competition-coverage/competition-coverage.schema'
 import { CompetitionDates, CompetitionDatesSchema } from './competition-dates.schema'
+import { CompetitionEntities, CompetitionEntitiesSchema } from './competition-entities.schema'
+import { CompetitionHook, CompetitionHookSchema } from './competition-hook.schema'
 import { CompetitionMeta, CompetitionMetaSchema } from './competition-meta.schema'
 import { CompetitionParticipants, CompetitionParticipantsSchema } from './competition-participants.schema'
 import { CompetitionSettings, CompetitionSettingsSchema } from './competition-settings.schema'
@@ -23,6 +24,14 @@ export type CompetitionDocument = Competition & Document
 })
 export class Competition {
     _id: string
+
+    @Prop({
+        type: String,
+        required: true,
+        trim: true,
+        lowercase: true,
+    })
+    slug: string
 
     @Prop({
         type: String,
@@ -44,9 +53,6 @@ export class Competition {
     })
     venues: Types.ObjectId[]
 
-    @Prop({ _id: false, type: CompetitionApiSchema })
-    api: CompetitionApi
-
     @Prop({ _id: false, type: CompetitionConfigSchema })
     config: CompetitionConfig
 
@@ -55,6 +61,12 @@ export class Competition {
 
     @Prop({ _id: false, type: CompetitionDatesSchema })
     dates: CompetitionDates
+
+    @Prop({ _id: false, type: CompetitionEntitiesSchema })
+    entities: CompetitionEntities
+
+    @Prop({ _id: false, type: CompetitionHookSchema })
+    hook: CompetitionHook
 
     @Prop({ _id: false, type: CompetitionMetaSchema })
     meta: CompetitionMeta

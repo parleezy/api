@@ -20,9 +20,14 @@ export class ImportFootballFactory {
     ): Api.CompetitionCreateParams {
         return {
             league_id: dto.league_id,
-            api_available: true,
-            api_host: Api.HostType.API_SPORTS,
-            api_id: dto.api_id,
+            slug: dto.api_id.toString(),
+
+            // External Hook
+            hook_available: true,
+            hook_host: Api.HostType.API_SPORTS,
+            hook_id: dto.api_id,
+
+            // Data Coverage
             competition_type: api_league.league.type,
             coverage_events: season.coverage.fixtures.events,
             coverage_lineups: season.coverage.fixtures.lineups,
@@ -35,23 +40,41 @@ export class ImportFootballFactory {
             coverage_players: season.coverage.players,
             coverage_scorers: season.coverage.top_scorers,
             coverage_standings: season.coverage.standings,
+
+            // Dates
             date_start: new Date(season.start),
             date_end: new Date(season.end),
-            country: league.meta.country,
-            region: league.meta.region,
-            subregion: league.meta.subregion,
+
+            // Meta Data
+            meta_country: league.meta.country,
+            meta_region: league.meta.region,
+            meta_subregion: league.meta.subregion,
+            meta_keywords: [],
         }
     }
 
     leagueDTO(league: ApiSportsType.FootballLeague): Api.LeagueCreateParams {
         return {
-            api_available: true,
-            api_host: Api.HostType.API_SPORTS,
-            api_id: league.league.id,
+            // General Info
+            slug: league.league.name.toLowerCase().replaceAll(' ', '-'),
             name: league.league.name,
-            country: league.country.code,
-            region: getRegionByCountryCode(league.country.code as Api.CountryType),
-            subregion: getSubRegionByCountryCode(league.country.code as Api.CountryType),
+
+            // External Hook
+            hook_available: true,
+            hook_host: Api.HostType.API_SPORTS,
+            hook_id: league.league.id,
+
+            // Meta Data
+            meta_country: league.country.code || Api.CountryType.WORLDWIDE,
+            meta_region: getRegionByCountryCode(league.country.code as Api.CountryType),
+            meta_subregion: getSubRegionByCountryCode(league.country.code as Api.CountryType),
+            meta_keywords: [],
+
+            // Settings
+            settings_initialised: false,
+            settings_published: false,
+            settings_sanitized: false,
+            settings_searchable: false,
         }
     }
 }

@@ -21,13 +21,13 @@ export class ImportFootballService {
     constructor(
         private _apiSportsService: ApiSportsService,
         private _importFactory: ImportFootballFactory,
-        private _leagueService: LeagueService,
         private _competitionService: CompetitionService,
+        private _leagueService: LeagueService,
     ) {}
 
     private async _importCompetition(dto: Api.ImportFootballCompetitionParams): Promise<Competition> {
         const league_internal = await this._leagueService.retrieve(dto.league_id)
-        const league_external = await this._apiSportsService.football.getLeagueById(league_internal.api.id.toString())
+        const league_external = await this._apiSportsService.football.getLeagueById(league_internal.hook.id.toString())
         const season = league_external.seasons.filter((s) => s.year === dto.api_id)
 
         return this._competitionService.create(

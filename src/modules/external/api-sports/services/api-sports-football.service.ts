@@ -31,7 +31,16 @@ export class ApiSportsFootballService {
         return response.data.response[0]
     }
 
-    async getCompetitionTeams(league: string, season: string): Promise<ApiSportsType.FootballTeam[]> {
+    async getCompetitionFixtures(league: number, season: number): Promise<ApiSportsType.FootballFixture[]> {
+        const response = await this._api.get(`/fixtures?league=${league}&season=${season}`)
+
+        return response.data.response
+    }
+
+    async getCompetitionTeams(
+        league: number,
+        season: number,
+    ): Promise<{ team: ApiSportsType.FootballTeam; venue: ApiSportsType.FootballVenue }[]> {
         const response = await this._api.get(`/teams?league=${league}&season=${season}`)
 
         return response.data.response

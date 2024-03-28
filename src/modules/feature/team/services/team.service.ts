@@ -16,7 +16,22 @@ export class TeamService {
         return this._teamRepository.list()
     }
 
-    retrieve(id: string): Promise<Team> {
+    private _retrieveByAPI(id: string): Promise<Team> {
         return this._teamRepository.retrieve(id)
+    }
+
+    get retrieve() {
+        return {
+            id: (id: string): Promise<Team | null> => {
+                return this._teamRepository.retrieve(id)
+            },
+            api: (id: number): Promise<Team | null> => {
+                const team = this._teamRepository.search({
+                    'api.id': id,
+                })
+
+                return team[0]
+            },
+        }
     }
 }
