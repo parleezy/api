@@ -1,0 +1,59 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+    },
+    "extends": [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:eslint-comments/recommended",
+        "plugin:json/recommended",
+        "plugin:prettier/recommended",
+        "plugin:promise/recommended",
+        "prettier",
+    ],
+    "globals": {
+        "react": "writable",
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [".js", ".jsx", ".ts", ".tsx"],
+            },
+            "typescript": {},
+        },
+        "react": {
+            "version": "detect",
+        },
+    },
+    "parserOptions": {
+        "ecmaVersion": 2023,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+        },
+    },
+    "rules": {
+        // Typescript Coding Standards
+        "@typescript-eslint/no-empty-function": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "vars": "all",
+                "args": "after-used",
+                "ignoreRestSiblings": true,
+                "argsIgnorePattern": "^_",
+                "varsIgnorePattern": "^_",
+                "caughtErrorsIgnorePattern": "^_",
+            },
+        ],
+
+        // Developer Specific
+        "array-bracket-newline": ["warn", { "multiline": true }],
+        "arrow-parens": ["warn", "always"],
+        "no-console": ["warn", { "allow": ["warn", "error"] }],
+        "no-multiple-empty-lines": ["warn", { "max": 2, "maxEOF": 0 }],
+        "object-curly-spacing": ["warn", "always"],
+        "comma-dangle": "off",
+    },
+}

@@ -1,0 +1,3 @@
+export const ErrorEvent = {
+    SIGNUP_ATTEMPT_WITH_EXISTING_EMAIL: 'SIGNUP_ATTEMPT_WITH_EXISTING_EMAIL',
+} as const
